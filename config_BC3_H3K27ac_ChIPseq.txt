@@ -1,0 +1,28 @@
+
+
+TrimGalore:/home/xiang/src/TrimGalore-0.6.6
+Cutadapt:/home/xiang/miniconda3/bin/cutadapt
+Bowtie2:/usr/bin/bowtie2
+IDR_dir:/home/xiang/miniconda3/bin/
+Macs2_dir:/home/xiang/miniconda3/bin
+
+# Threads
+Threads:8
+
+GENOME:GRCh38.primary_GQ994935.fa
+Index:hg38_GQ994935
+
+Output_dir:/home/xiang/DNA_seq/BC3_data
+Trimmed_dir:trimmed_OG
+Alignment_dir:ChIPseq_aligned
+Macs2_output:/home/xiang/DNA_seq/BC3_data/macs2_out
+# fastq folder
+Fastq_dir:/home/xiang/DNA_seq/BC3_data/OG_ChIPseq
+
+# fastq files
+SRR10008157_1.fastq.gz
+SRR10008155_1.fastq.gz
+SRR10008156_1.fastq.gz
+
+# Pair end or not
+PAIREND:No

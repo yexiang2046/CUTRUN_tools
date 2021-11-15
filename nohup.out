@@ -1,0 +1,40 @@
+./bash/step1_reads_trimming.sh: line 17: No: command not found
+Using an excessive number of cores has a diminishing return! It is recommended not to exceed 8 cores per trimming process (you asked for 8 cores). Please consider re-specifying
+Path to Cutadapt set as: 'cutadapt' (default)
+Cutadapt seems to be working fine (tested command 'cutadapt --version')
+Cutadapt version: 3.5
+Cutadapt seems to be using Python 3! Proceeding with multi-core enabled Cutadapt using 8 cores
+Parallel gzip (pigz) detected. Proceeding with multicore (de)compression using 8 cores
+
+No quality encoding type selected. Assuming that the data provided uses Sanger encoded Phred scores (default)
+
+Output directory trimmed_OG/ doesn't exist, creating it for you...
+
+Output will be written into the directory: /home/xiang/Dropbox/ChIPseqAna/trimmed_OG/
+Failed to read from file 'fastq_file1' to perform sanity check: No such file or directory
+./bash/step1_reads_trimming.sh: line 17: No: command not found
+Using an excessive number of cores has a diminishing return! It is recommended not to exceed 8 cores per trimming process (you asked for 8 cores). Please consider re-specifying
+Path to Cutadapt set as: 'cutadapt' (default)
+Cutadapt seems to be working fine (tested command 'cutadapt --version')
+Cutadapt version: 3.5
+Cutadapt seems to be using Python 3! Proceeding with multi-core enabled Cutadapt using 8 cores
+Parallel gzip (pigz) detected. Proceeding with multicore (de)compression using 8 cores
+
+No quality encoding type selected. Assuming that the data provided uses Sanger encoded Phred scores (default)
+
+Output will be written into the directory: /home/xiang/Dropbox/ChIPseqAna/trimmed_OG/
+Failed to read from file 'fastq_file1' to perform sanity check: No such file or directory
+./bash/step1_reads_trimming.sh: line 17: No: command not found
+Using an excessive number of cores has a diminishing return! It is recommended not to exceed 8 cores per trimming process (you asked for 8 cores). Please consider re-specifying
+Path to Cutadapt set as: 'cutadapt' (default)
+Cutadapt seems to be working fine (tested command 'cutadapt --version')
+Cutadapt version: 3.5
+Cutadapt seems to be using Python 3! Proceeding with multi-core enabled Cutadapt using 8 cores
+Parallel gzip (pigz) detected. Proceeding with multicore (de)compression using 8 cores
+
+No quality encoding type selected. Assuming that the data provided uses Sanger encoded Phred scores (default)
+
+Output will be written into the directory: /home/xiang/Dropbox/ChIPseqAna/trimmed_OG/
+Failed to read from file 'fastq_file1' to perform sanity check: No such file or directory
+('8', 'hg38_GQ994935', '/home/xiang/DNA_seq/BC3_data', '/home/xiang/src/TrimGalore-0.6.6', 'ChIPseq_aligned', 'No', 'trimmed_OG')
+['SRR10008157_1.fastq.gz', 'SRR10008155_1.fastq.gz', 'SRR10008156_1.fastq.gz']
