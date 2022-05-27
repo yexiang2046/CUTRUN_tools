@@ -14,8 +14,24 @@ ALIGNED_DIR=$6
 PAIREND=$7
 TRIMMED_DIR=$8
 FASTQ_FILE1=$9
-FASTQ_FILE2=$10
-SAMPLE_NAME=$(basename $FASTQ_FILE1 "_1_trimmed.fq.gz")
+FASTQ_FILE2=${10}
+
+echo "THREADS = ${THREADS}"
+echo "GENOME_FILE = ${GENOME_FILE}"
+echo "INDEX_PREFIX = ${INDEX_PREFIX}"
+echo "OUTPUT_DIR = ${OUTPUT_DIR}"
+echo "BOWTIE2_DIR = ${BOWTIE2_DIR}"
+echo "ALIGNED_DIR = ${ALIGNED_DIR}"
+echo "PAIREND = ${PAIREND}"
+echo "TRIMMED_DIR = ${TRIMMED_DIR}"
+echo "FASTQ_FILE1 = ${FASTQ_FILE1}"
+echo "FASTQ_FILE2 = ${FASTQ_FILE2}"
+
+
+SAMPLE_NAME=$(basename ${FASTQ_FILE1} ".fastq.gz")
+
+echo "sample fastq file: ${FASTQ_FILE1} and ${FASTQ_FILE2}"
+
 
 
 export PATH=$PATH:$BOWTIE2_DIR
@@ -30,22 +46,15 @@ if [[ $PAIREND == "Yes" ]]; then
 
   samtools view -@ 30 -S -b ${ALIGNED_DIR}/${SAMPLE_NAME}.sam > ${ALIGNED_DIR}/${SAMPLE_NAME}.bam
   samtools sort -@ 30 -o ${ALIGNED_DIR}/${SAMPLE_NAME}_sorted.bam ${ALIGNED_DIR}/${SAMPLE_NAME}.bam
-  samtools index -@ 30 ${ALIGNED_DIR}/${SAMPLE_NAME}_sorted.bam
-  #rm ./${ALIGNED_DIR}/${SAMPLE_NAME}.sam
-  #rm ./${ALIGNED_DIR}/${SAMPLE_NAME}.bam
-  samtools view -@ 24 -bh ${ALIGNED_DIR}/${SAMPLE_NAME}_sorted.bam chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY chrGQ994935 > ${ALIGNED_DIR}/${SAMPLE_NAME}.filteredChr.bam
-  samtools index -@ 24 ${ALIGNED_DIR}/${SAMPLE_NAME}.filteredChr.bam
-else
 
-  bowtie2 --local --very-sensitive-local --no-unal --no-mixed --no-discordant --phred33 -k 1 -I 10 -X 700 -x ${OUTPUT_DIR}/${INDEX_PREFIX} -p ${THREADS} -r ${FASTQ_FILE1} -S ${ALIGNED_DIR}/${SAMPLE_NAME}.sam
+elif [[ $PAIREND == "No" ]]
+then
+
+  bowtie2 --local --very-sensitive-local --no-unal --no-mixed --no-discordant --phred33 -k 1 -I 10 -X 700 -x ${OUTPUT_DIR}/${INDEX_PREFIX} -p ${THREADS} -r ${TRIMMED_DIR}/${SAMPLE_NAME}_trimmed.fq.gz -S ${ALIGNED_DIR}/${SAMPLE_NAME}.sam
 
   samtools view -@ 30 -S -b ${ALIGNED_DIR}/${SAMPLE_NAME}.sam > ${ALIGNED_DIR}/${SAMPLE_NAME}.bam
   samtools sort -@ 30 -o ${ALIGNED_DIR}/${SAMPLE_NAME}_sorted.bam ${ALIGNED_DIR}/${SAMPLE_NAME}.bam
-  samtools index -@ 30 ${ALIGNED_DIR}/${SAMPLE_NAME}_sorted.bam
-  #rm ./${ALIGNED_DIR}/${SAMPLE_NAME}.sam
-  #rm ./${ALIGNED_DIR}/${SAMPLE_NAME}.bam
-  samtools view -@ 24 -bh ${ALIGNED_DIR}/${SAMPLE_NAME}_sorted.bam chr1 chr2 chr3 chr4 chr5 chr6 chr7 chr8 chr9 chr10 chr11 chr12 chr13 chr14 chr15 chr16 chr17 chr18 chr19 chr20 chr21 chr22 chrX chrY chrGQ994935 > ${ALIGNED_DIR}/${SAMPLE_NAME}.filteredChr.bam
-  samtools index -@ 24 ${ALIGNED_DIR}/${SAMPLE_NAME}.filteredChr.bam
+
 fi
 
 

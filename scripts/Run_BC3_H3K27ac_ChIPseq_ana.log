@@ -1,0 +1,54 @@
+THREADS = 8
+GENOME_FILE = /home/xiang/New_disk1/BC3_public_data/GRCh38.primary_GQ994935.fa
+INDEX_PREFIX = hg38_GQ994935
+OUTPUT_DIR = /home/xiang/New_disk1/BC3_public_data
+BOWTIE2_DIR = /usr/bin/bowtie2
+ALIGNED_DIR = /home/xiang/New_disk1/BC3_public_data/ChIPseq_aligned
+PAIREND = No
+TRIMMED_DIR = /home/xiang/New_disk1/BC3_public_data/trimmed_OG
+FASTQ_FILE1 = /home/xiang/New_disk1/BC3_public_data/OG/SRR10008157.fastq.gz
+sample fastq file: /home/xiang/New_disk1/BC3_public_data/OG/SRR10008157.fastq.gz
+11272215 reads; of these:
+  11272215 (100.00%) were unpaired; of these:
+    32927 (0.29%) aligned 0 times
+    11239288 (99.71%) aligned exactly 1 time
+    0 (0.00%) aligned >1 times
+99.71% overall alignment rate
+[bam_sort_core] merging from 0 files and 30 in-memory blocks...
+THREADS = 8
+GENOME_FILE = /home/xiang/New_disk1/BC3_public_data/GRCh38.primary_GQ994935.fa
+INDEX_PREFIX = hg38_GQ994935
+OUTPUT_DIR = /home/xiang/New_disk1/BC3_public_data
+BOWTIE2_DIR = /usr/bin/bowtie2
+ALIGNED_DIR = /home/xiang/New_disk1/BC3_public_data/ChIPseq_aligned
+PAIREND = No
+TRIMMED_DIR = /home/xiang/New_disk1/BC3_public_data/trimmed_OG
+FASTQ_FILE1 = /home/xiang/New_disk1/BC3_public_data/OG/SRR10008155.fastq.gz
+sample fastq file: /home/xiang/New_disk1/BC3_public_data/OG/SRR10008155.fastq.gz
+9064714 reads; of these:
+  9064714 (100.00%) were unpaired; of these:
+    32205 (0.36%) aligned 0 times
+    9032509 (99.64%) aligned exactly 1 time
+    0 (0.00%) aligned >1 times
+99.64% overall alignment rate
+[bam_sort_core] merging from 0 files and 30 in-memory blocks...
+THREADS = 8
+GENOME_FILE = /home/xiang/New_disk1/BC3_public_data/GRCh38.primary_GQ994935.fa
+INDEX_PREFIX = hg38_GQ994935
+OUTPUT_DIR = /home/xiang/New_disk1/BC3_public_data
+BOWTIE2_DIR = /usr/bin/bowtie2
+ALIGNED_DIR = /home/xiang/New_disk1/BC3_public_data/ChIPseq_aligned
+PAIREND = No
+TRIMMED_DIR = /home/xiang/New_disk1/BC3_public_data/trimmed_OG
+FASTQ_FILE1 = /home/xiang/New_disk1/BC3_public_data/OG/SRR10008156.fastq.gz
+sample fastq file: /home/xiang/New_disk1/BC3_public_data/OG/SRR10008156.fastq.gz
+8186810 reads; of these:
+  8186810 (100.00%) were unpaired; of these:
+    36582 (0.45%) aligned 0 times
+    8150228 (99.55%) aligned exactly 1 time
+    0 (0.00%) aligned >1 times
+99.55% overall alignment rate
+[bam_sort_core] merging from 0 files and 30 in-memory blocks...
+0
+1
+2

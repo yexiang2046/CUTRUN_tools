@@ -1,0 +1,1879 @@
+threads = 24
+out_dir = /home/xiang/New_disk1/CD8_CUTRUN
+trimmer_dir = /home/xiang/src/TrimGalore-0.6.6
+alignment_dir = all_ChIPseq_aligned
+pairend = Yes
+trimmed_dir = /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG
+cutadapt_dir = /home/xiang/miniconda3/bin/cutadapt
+fastq_file1 = /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R1_001.fastq.gz
+Trim paired reads: Yes
+Using an excessive number of cores has a diminishing return! It is recommended not to exceed 8 cores per trimming process (you asked for 24 cores). Please consider re-specifying
+Path to Cutadapt set as: '/home/xiang/miniconda3/bin/cutadapt' (user defined)
+Cutadapt seems to be working fine (tested command '/home/xiang/miniconda3/bin/cutadapt --version')
+Cutadapt version: 3.5
+Cutadapt seems to be using Python 3! Proceeding with multi-core enabled Cutadapt using 24 cores
+pigz 2.6
+Parallel gzip (pigz) detected. Proceeding with multicore (de)compression using 24 cores
+
+No quality encoding type selected. Assuming that the data provided uses Sanger encoded Phred scores (default)
+
+Output will be written into the directory: /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-46_S1_L005_R1_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R1_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j 24
+Writing final adapter and quality trimmed output to 7523-MM-46_S1_L005_R1_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R1_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R1_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 28.20 s (3 µs/read; 20.03 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               9,414,389
+Reads with adapters:                 4,282,922 (45.5%)
+Reads written (passing filters):     9,414,389 (100.0%)
+
+Total basepairs processed: 1,421,572,739 bp
+Quality-trimmed:               3,313,297 bp (0.2%)
+Total written (filtered):  1,383,870,731 bp (97.3%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 4282922 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 28.1%
+  C: 24.8%
+  G: 21.2%
+  T: 26.0%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	1913799	2353597.2	0	1913799
+2	677461	588399.3	0	677461
+3	261249	147099.8	0	261249
+4	100223	36775.0	0	100223
+5	73176	9193.7	0	73176
+6	58808	2298.4	0	58808
+7	52589	574.6	0	52589
+8	67234	143.7	0	67234
+9	31626	35.9	0	31464 162
+10	44994	9.0	1	41960 3034
+11	45133	2.2	1	41434 3699
+12	46193	0.6	1	42621 3572
+13	42239	0.1	1	38980 3259
+14	43345	0.1	1	40038 3307
+15	42194	0.1	1	38872 3322
+16	40523	0.1	1	37038 3485
+17	43281	0.1	1	39646 3635
+18	40444	0.1	1	37798 2646
+19	31148	0.1	1	29188 1960
+20	35218	0.1	1	32709 2509
+21	34259	0.1	1	31737 2522
+22	30596	0.1	1	28649 1947
+23	32676	0.1	1	30429 2247
+24	29644	0.1	1	27437 2207
+25	27563	0.1	1	25679 1884
+26	23904	0.1	1	22371 1533
+27	24827	0.1	1	23130 1697
+28	21079	0.1	1	19818 1261
+29	21523	0.1	1	19969 1554
+30	20919	0.1	1	19698 1221
+31	14846	0.1	1	13995 851
+32	17355	0.1	1	16303 1052
+33	16635	0.1	1	15548 1087
+34	17271	0.1	1	16076 1195
+35	17355	0.1	1	16243 1112
+36	13667	0.1	1	12790 877
+37	13707	0.1	1	12922 785
+38	14043	0.1	1	13035 1008
+39	13603	0.1	1	12774 829
+40	11785	0.1	1	11122 663
+41	12110	0.1	1	11353 757
+42	11788	0.1	1	11060 728
+43	10633	0.1	1	10009 624
+44	10037	0.1	1	9401 636
+45	15443	0.1	1	14637 806
+46	3054	0.1	1	2824 230
+47	7489	0.1	1	7108 381
+48	8662	0.1	1	8141 521
+49	7575	0.1	1	7237 338
+50	4298	0.1	1	4035 263
+51	6738	0.1	1	6336 402
+52	5797	0.1	1	5504 293
+53	4686	0.1	1	4429 257
+54	4827	0.1	1	4571 256
+55	6871	0.1	1	6531 340
+56	4107	0.1	1	3932 175
+57	4571	0.1	1	4362 209
+58	4613	0.1	1	4365 248
+59	4242	0.1	1	4066 176
+60	1855	0.1	1	1772 83
+61	1623	0.1	1	1538 85
+62	4578	0.1	1	4358 220
+63	2220	0.1	1	2115 105
+64	1821	0.1	1	1737 84
+65	1370	0.1	1	1309 61
+66	4028	0.1	1	3886 142
+67	1397	0.1	1	1331 66
+68	1908	0.1	1	1819 89
+69	888	0.1	1	838 50
+70	532	0.1	1	487 45
+71	278	0.1	1	255 23
+72	598	0.1	1	555 43
+73	901	0.1	1	857 44
+74	894	0.1	1	846 48
+75	907	0.1	1	856 51
+76	818	0.1	1	764 54
+77	789	0.1	1	741 48
+78	746	0.1	1	710 36
+79	678	0.1	1	644 34
+80	618	0.1	1	575 43
+81	587	0.1	1	552 35
+82	512	0.1	1	473 39
+83	436	0.1	1	409 27
+84	466	0.1	1	437 29
+85	392	0.1	1	362 30
+86	397	0.1	1	360 37
+87	321	0.1	1	293 28
+88	280	0.1	1	258 22
+89	286	0.1	1	266 20
+90	229	0.1	1	210 19
+91	249	0.1	1	225 24
+92	227	0.1	1	206 21
+93	199	0.1	1	183 16
+94	174	0.1	1	154 20
+95	180	0.1	1	160 20
+96	170	0.1	1	149 21
+97	131	0.1	1	114 17
+98	146	0.1	1	129 17
+99	116	0.1	1	97 19
+100	115	0.1	1	101 14
+101	112	0.1	1	87 25
+102	105	0.1	1	87 18
+103	94	0.1	1	83 11
+104	86	0.1	1	76 10
+105	85	0.1	1	67 18
+106	96	0.1	1	75 21
+107	65	0.1	1	54 11
+108	76	0.1	1	59 17
+109	71	0.1	1	56 15
+110	71	0.1	1	57 14
+111	58	0.1	1	46 12
+112	44	0.1	1	39 5
+113	33	0.1	1	27 6
+114	56	0.1	1	38 18
+115	34	0.1	1	23 11
+116	46	0.1	1	36 10
+117	38	0.1	1	23 15
+118	33	0.1	1	23 10
+119	29	0.1	1	21 8
+120	35	0.1	1	26 9
+121	32	0.1	1	19 13
+122	18	0.1	1	11 7
+123	22	0.1	1	15 7
+124	18	0.1	1	13 5
+125	23	0.1	1	13 10
+126	19	0.1	1	8 11
+127	26	0.1	1	14 12
+128	20	0.1	1	9 11
+129	10	0.1	1	3 7
+130	15	0.1	1	5 10
+131	12	0.1	1	5 7
+132	11	0.1	1	3 8
+133	15	0.1	1	7 8
+134	7	0.1	1	0 7
+135	8	0.1	1	4 4
+136	7	0.1	1	1 6
+137	8	0.1	1	0 8
+138	10	0.1	1	5 5
+139	4	0.1	1	0 4
+140	13	0.1	1	2 11
+141	13	0.1	1	2 11
+142	9	0.1	1	2 7
+143	3	0.1	1	1 2
+144	11	0.1	1	1 10
+145	8	0.1	1	0 8
+146	14	0.1	1	1 13
+147	12	0.1	1	0 12
+148	4	0.1	1	0 4
+149	13	0.1	1	3 10
+150	12	0.1	1	0 12
+151	523	0.1	1	86 437
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R1_001.fastq.gz
+=============================================
+9414389 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-46_S1_L005_R2_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R2_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j -j 24
+Writing final adapter and quality trimmed output to 7523-MM-46_S1_L005_R2_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R2_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R2_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 27.60 s (3 µs/read; 20.47 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               9,414,389
+Reads with adapters:                 4,316,312 (45.8%)
+Reads written (passing filters):     9,414,389 (100.0%)
+
+Total basepairs processed: 1,421,572,739 bp
+Quality-trimmed:               3,612,435 bp (0.3%)
+Total written (filtered):  1,383,431,636 bp (97.3%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 4316312 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 28.5%
+  C: 25.0%
+  G: 21.0%
+  T: 25.5%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	1926885	2353597.2	0	1926885
+2	688656	588399.3	0	688656
+3	267040	147099.8	0	267040
+4	100435	36775.0	0	100435
+5	73409	9193.7	0	73409
+6	59102	2298.4	0	59102
+7	52545	574.6	0	52545
+8	59116	143.7	0	59116
+9	40537	35.9	0	40358 179
+10	46524	9.0	1	44514 2010
+11	43817	2.2	1	41888 1929
+12	46230	0.6	1	44103 2127
+13	44335	0.1	1	42591 1744
+14	47295	0.1	1	44936 2359
+15	37342	0.1	1	35671 1671
+16	41513	0.1	1	39686 1827
+17	46788	0.1	1	44700 2088
+18	29422	0.1	1	28279 1143
+19	41509	0.1	1	39629 1880
+20	34587	0.1	1	33339 1248
+21	29440	0.1	1	28272 1168
+22	31994	0.1	1	30722 1272
+23	31404	0.1	1	30335 1069
+24	29679	0.1	1	28558 1121
+25	30330	0.1	1	29120 1210
+26	24049	0.1	1	23121 928
+27	23249	0.1	1	22302 947
+28	21907	0.1	1	21133 774
+29	19725	0.1	1	18986 739
+30	20790	0.1	1	20087 703
+31	16002	0.1	1	15442 560
+32	20025	0.1	1	19352 673
+33	14087	0.1	1	13586 501
+34	17845	0.1	1	17248 597
+35	15808	0.1	1	15301 507
+36	13752	0.1	1	13313 439
+37	14681	0.1	1	14239 442
+38	15673	0.1	1	15186 487
+39	10586	0.1	1	10243 343
+40	12425	0.1	1	12031 394
+41	11956	0.1	1	11581 375
+42	11706	0.1	1	11336 370
+43	10295	0.1	1	9988 307
+44	9828	0.1	1	9535 293
+45	9690	0.1	1	9359 331
+46	10047	0.1	1	9726 321
+47	7351	0.1	1	7161 190
+48	6834	0.1	1	6631 203
+49	7541	0.1	1	7304 237
+50	5532	0.1	1	5397 135
+51	5876	0.1	1	5704 172
+52	5623	0.1	1	5460 163
+53	5186	0.1	1	5054 132
+54	5346	0.1	1	5182 164
+55	4283	0.1	1	4173 110
+56	4555	0.1	1	4423 132
+57	4729	0.1	1	4582 147
+58	3395	0.1	1	3299 96
+59	3601	0.1	1	3509 92
+60	3527	0.1	1	3409 118
+61	3156	0.1	1	3081 75
+62	2713	0.1	1	2645 68
+63	3609	0.1	1	3486 123
+64	1984	0.1	1	1930 54
+65	2066	0.1	1	2010 56
+66	1866	0.1	1	1807 59
+67	1813	0.1	1	1751 62
+68	1819	0.1	1	1756 63
+69	1515	0.1	1	1483 32
+70	1416	0.1	1	1363 53
+71	1369	0.1	1	1312 57
+72	1259	0.1	1	1219 40
+73	1614	0.1	1	1570 44
+74	1376	0.1	1	1315 61
+75	1380	0.1	1	1338 42
+76	680	0.1	1	661 19
+77	516	0.1	1	495 21
+78	558	0.1	1	534 24
+79	508	0.1	1	491 17
+80	516	0.1	1	489 27
+81	497	0.1	1	482 15
+82	444	0.1	1	422 22
+83	381	0.1	1	361 20
+84	432	0.1	1	398 34
+85	342	0.1	1	325 17
+86	364	0.1	1	335 29
+87	311	0.1	1	284 27
+88	255	0.1	1	233 22
+89	276	0.1	1	257 19
+90	235	0.1	1	219 16
+91	238	0.1	1	216 22
+92	231	0.1	1	217 14
+93	195	0.1	1	180 15
+94	177	0.1	1	152 25
+95	183	0.1	1	166 17
+96	183	0.1	1	168 15
+97	130	0.1	1	116 14
+98	161	0.1	1	143 18
+99	115	0.1	1	106 9
+100	129	0.1	1	108 21
+101	116	0.1	1	103 13
+102	114	0.1	1	99 15
+103	93	0.1	1	77 16
+104	90	0.1	1	80 10
+105	91	0.1	1	71 20
+106	96	0.1	1	76 20
+107	78	0.1	1	63 15
+108	75	0.1	1	65 10
+109	81	0.1	1	63 18
+110	68	0.1	1	57 11
+111	56	0.1	1	47 9
+112	51	0.1	1	43 8
+113	35	0.1	1	25 10
+114	50	0.1	1	44 6
+115	45	0.1	1	27 18
+116	51	0.1	1	38 13
+117	50	0.1	1	30 20
+118	32	0.1	1	25 7
+119	41	0.1	1	26 15
+120	34	0.1	1	27 7
+121	34	0.1	1	25 9
+122	22	0.1	1	11 11
+123	31	0.1	1	16 15
+124	24	0.1	1	15 9
+125	23	0.1	1	14 9
+126	17	0.1	1	8 9
+127	25	0.1	1	18 7
+128	19	0.1	1	11 8
+129	9	0.1	1	3 6
+130	15	0.1	1	4 11
+131	10	0.1	1	6 4
+132	11	0.1	1	3 8
+133	13	0.1	1	7 6
+134	4	0.1	1	0 4
+135	8	0.1	1	4 4
+136	10	0.1	1	1 9
+137	9	0.1	1	1 8
+138	15	0.1	1	5 10
+139	5	0.1	1	1 4
+140	8	0.1	1	2 6
+141	11	0.1	1	2 9
+142	12	0.1	1	2 10
+143	9	0.1	1	1 8
+144	7	0.1	1	1 6
+145	7	0.1	1	0 7
+146	11	0.1	1	1 10
+147	10	0.1	1	0 10
+148	6	0.1	1	0 6
+149	15	0.1	1	3 12
+150	8	0.1	1	1 7
+151	106	0.1	1	89 17
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-46_S1_L005_R2_001.fastq.gz
+=============================================
+9414389 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Validate paired-end files 7523-MM-46_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-46_S1_L005_R2_001_trimmed.fq.gz
+file_1: 7523-MM-46_S1_L005_R1_001_trimmed.fq.gz, file_2: 7523-MM-46_S1_L005_R2_001_trimmed.fq.gz
+
+
+>>>>> Now validing the length of the 2 paired-end infiles: 7523-MM-46_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-46_S1_L005_R2_001_trimmed.fq.gz <<<<<
+Writing validated paired-end Read 1 reads to 7523-MM-46_S1_L005_R1_001_val_1.fq.gz
+Writing validated paired-end Read 2 reads to 7523-MM-46_S1_L005_R2_001_val_2.fq.gz
+
+Total number of sequences analysed: 9414389
+
+Number of sequence pairs removed because at least one read was shorter than the length cutoff (20 bp): 1765 (0.02%)
+
+
+  >>> Now running FastQC on the validated data 7523-MM-46_S1_L005_R1_001_val_1.fq.gz<<<
+
+Can't exec "fastqc": No such file or directory at /home/xiang/src/TrimGalore-0.6.6/trim_galore line 1528, <IN2> line 37657556.
+
+  >>> Now running FastQC on the validated data 7523-MM-46_S1_L005_R2_001_val_2.fq.gz<<<
+
+Can't exec "fastqc": No such file or directory at /home/xiang/src/TrimGalore-0.6.6/trim_galore line 1538, <IN2> line 37657556.
+Deleting both intermediate output files 7523-MM-46_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-46_S1_L005_R2_001_trimmed.fq.gz
+
+====================================================================================================
+
+threads = 24
+out_dir = /home/xiang/New_disk1/CD8_CUTRUN
+trimmer_dir = /home/xiang/src/TrimGalore-0.6.6
+alignment_dir = all_ChIPseq_aligned
+pairend = Yes
+trimmed_dir = /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG
+cutadapt_dir = /home/xiang/miniconda3/bin/cutadapt
+fastq_file1 = /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R1_001.fastq.gz
+Trim paired reads: Yes
+Using an excessive number of cores has a diminishing return! It is recommended not to exceed 8 cores per trimming process (you asked for 24 cores). Please consider re-specifying
+Path to Cutadapt set as: '/home/xiang/miniconda3/bin/cutadapt' (user defined)
+Cutadapt seems to be working fine (tested command '/home/xiang/miniconda3/bin/cutadapt --version')
+Cutadapt version: 3.5
+Cutadapt seems to be using Python 3! Proceeding with multi-core enabled Cutadapt using 24 cores
+pigz 2.6
+Parallel gzip (pigz) detected. Proceeding with multicore (de)compression using 24 cores
+
+No quality encoding type selected. Assuming that the data provided uses Sanger encoded Phred scores (default)
+
+Output will be written into the directory: /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-47_S1_L005_R1_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R1_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j 24
+Writing final adapter and quality trimmed output to 7523-MM-47_S1_L005_R1_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R1_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R1_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 25.19 s (3 µs/read; 20.08 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               8,429,560
+Reads with adapters:                 3,535,951 (41.9%)
+Reads written (passing filters):     8,429,560 (100.0%)
+
+Total basepairs processed: 1,272,863,560 bp
+Quality-trimmed:               3,011,745 bp (0.2%)
+Total written (filtered):  1,247,335,156 bp (98.0%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 3535951 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 27.8%
+  C: 27.3%
+  G: 22.5%
+  T: 22.3%
+  none/other: 0.1%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	1874737	2107390.0	0	1874737
+2	610562	526847.5	0	610562
+3	217451	131711.9	0	217451
+4	65179	32928.0	0	65179
+5	38704	8232.0	0	38704
+6	28837	2058.0	0	28837
+7	25501	514.5	0	25501
+8	27469	128.6	0	27469
+9	25285	32.2	0	25138 147
+10	24157	8.0	1	23266 891
+11	24613	2.0	1	23393 1220
+12	25373	0.5	1	24362 1011
+13	22696	0.1	1	21861 835
+14	23940	0.1	1	22840 1100
+15	23300	0.1	1	22334 966
+16	22990	0.1	1	21922 1068
+17	24251	0.1	1	22946 1305
+18	22781	0.1	1	21973 808
+19	17210	0.1	1	16619 591
+20	20038	0.1	1	19228 810
+21	19604	0.1	1	18761 843
+22	17213	0.1	1	16699 514
+23	18509	0.1	1	17784 725
+24	17671	0.1	1	16813 858
+25	16450	0.1	1	15814 636
+26	14297	0.1	1	13849 448
+27	15013	0.1	1	14398 615
+28	12875	0.1	1	12462 413
+29	13096	0.1	1	12488 608
+30	12852	0.1	1	12396 456
+31	9706	0.1	1	9384 322
+32	11081	0.1	1	10713 368
+33	10757	0.1	1	10316 441
+34	10448	0.1	1	10085 363
+35	10322	0.1	1	9897 425
+36	9824	0.1	1	9481 343
+37	10440	0.1	1	9980 460
+38	8005	0.1	1	7770 235
+39	8650	0.1	1	8242 408
+40	8200	0.1	1	7968 232
+41	8149	0.1	1	7774 375
+42	7902	0.1	1	7610 292
+43	8819	0.1	1	8441 378
+44	5608	0.1	1	5427 181
+45	10252	0.1	1	9928 324
+46	2023	0.1	1	1895 128
+47	4970	0.1	1	4819 151
+48	5480	0.1	1	5294 186
+49	4629	0.1	1	4466 163
+50	3356	0.1	1	3222 134
+51	4292	0.1	1	4106 186
+52	3604	0.1	1	3491 113
+53	3098	0.1	1	2996 102
+54	3038	0.1	1	2954 84
+55	4068	0.1	1	3938 130
+56	2428	0.1	1	2345 83
+57	2932	0.1	1	2833 99
+58	2942	0.1	1	2849 93
+59	2289	0.1	1	2225 64
+60	1281	0.1	1	1229 52
+61	1009	0.1	1	982 27
+62	2588	0.1	1	2512 76
+63	1566	0.1	1	1513 53
+64	1165	0.1	1	1116 49
+65	830	0.1	1	790 40
+66	2399	0.1	1	2350 49
+67	989	0.1	1	948 41
+68	1318	0.1	1	1277 41
+69	526	0.1	1	504 22
+70	335	0.1	1	312 23
+71	215	0.1	1	189 26
+72	389	0.1	1	367 22
+73	618	0.1	1	592 26
+74	574	0.1	1	556 18
+75	551	0.1	1	528 23
+76	505	0.1	1	478 27
+77	504	0.1	1	475 29
+78	440	0.1	1	414 26
+79	390	0.1	1	359 31
+80	369	0.1	1	345 24
+81	344	0.1	1	327 17
+82	308	0.1	1	285 23
+83	277	0.1	1	252 25
+84	264	0.1	1	244 20
+85	230	0.1	1	198 32
+86	216	0.1	1	195 21
+87	204	0.1	1	171 33
+88	197	0.1	1	179 18
+89	158	0.1	1	141 17
+90	165	0.1	1	142 23
+91	154	0.1	1	140 14
+92	142	0.1	1	122 20
+93	104	0.1	1	90 14
+94	107	0.1	1	92 15
+95	104	0.1	1	89 15
+96	104	0.1	1	86 18
+97	97	0.1	1	83 14
+98	82	0.1	1	68 14
+99	74	0.1	1	61 13
+100	79	0.1	1	64 15
+101	71	0.1	1	56 15
+102	66	0.1	1	50 16
+103	73	0.1	1	54 19
+104	50	0.1	1	43 7
+105	63	0.1	1	43 20
+106	48	0.1	1	34 14
+107	46	0.1	1	34 12
+108	48	0.1	1	37 11
+109	33	0.1	1	18 15
+110	59	0.1	1	45 14
+111	52	0.1	1	36 16
+112	39	0.1	1	24 15
+113	27	0.1	1	18 9
+114	18	0.1	1	10 8
+115	40	0.1	1	26 14
+116	48	0.1	1	30 18
+117	26	0.1	1	17 9
+118	33	0.1	1	19 14
+119	31	0.1	1	18 13
+120	26	0.1	1	12 14
+121	27	0.1	1	13 14
+122	22	0.1	1	14 8
+123	22	0.1	1	12 10
+124	21	0.1	1	14 7
+125	13	0.1	1	8 5
+126	16	0.1	1	6 10
+127	21	0.1	1	11 10
+128	18	0.1	1	9 9
+129	6	0.1	1	3 3
+130	12	0.1	1	7 5
+131	11	0.1	1	6 5
+132	11	0.1	1	5 6
+133	11	0.1	1	8 3
+134	7	0.1	1	4 3
+135	13	0.1	1	3 10
+136	12	0.1	1	3 9
+137	12	0.1	1	1 11
+138	9	0.1	1	4 5
+139	8	0.1	1	1 7
+140	8	0.1	1	0 8
+141	6	0.1	1	1 5
+142	7	0.1	1	2 5
+143	5	0.1	1	0 5
+144	3	0.1	1	1 2
+145	9	0.1	1	5 4
+146	11	0.1	1	1 10
+147	6	0.1	1	1 5
+148	6	0.1	1	2 4
+149	8	0.1	1	1 7
+150	10	0.1	1	1 9
+151	2766	0.1	1	149 2617
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R1_001.fastq.gz
+=============================================
+8429560 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-47_S1_L005_R2_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R2_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j -j 24
+Writing final adapter and quality trimmed output to 7523-MM-47_S1_L005_R2_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R2_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R2_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 25.27 s (3 µs/read; 20.02 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               8,429,560
+Reads with adapters:                 3,558,000 (42.2%)
+Reads written (passing filters):     8,429,560 (100.0%)
+
+Total basepairs processed: 1,272,863,560 bp
+Quality-trimmed:               3,635,523 bp (0.3%)
+Total written (filtered):  1,246,949,311 bp (98.0%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 3558000 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 28.2%
+  C: 27.3%
+  G: 22.4%
+  T: 22.1%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	1883834	2107390.0	0	1883834
+2	619512	526847.5	0	619512
+3	222405	131711.9	0	222405
+4	65232	32928.0	0	65232
+5	39004	8232.0	0	39004
+6	28776	2058.0	0	28776
+7	25828	514.5	0	25828
+8	29696	128.6	0	29696
+9	22598	32.2	0	22435 163
+10	25032	8.0	1	23933 1099
+11	23941	2.0	1	22668 1273
+12	25355	0.5	1	24104 1251
+13	23876	0.1	1	22843 1033
+14	25819	0.1	1	24547 1272
+15	20782	0.1	1	19831 951
+16	23652	0.1	1	22580 1072
+17	26132	0.1	1	24928 1204
+18	16323	0.1	1	15593 730
+19	23714	0.1	1	22583 1131
+20	19720	0.1	1	18966 754
+21	16140	0.1	1	15453 687
+22	18100	0.1	1	17314 786
+23	17853	0.1	1	17107 746
+24	18223	0.1	1	17465 758
+25	17836	0.1	1	17099 737
+26	14102	0.1	1	13548 554
+27	13709	0.1	1	13115 594
+28	13067	0.1	1	12648 419
+29	12654	0.1	1	12161 493
+30	11925	0.1	1	11504 421
+31	11196	0.1	1	10779 417
+32	10791	0.1	1	10392 399
+33	11374	0.1	1	10941 433
+34	10491	0.1	1	10101 390
+35	10087	0.1	1	9787 300
+36	9745	0.1	1	9404 341
+37	9450	0.1	1	9063 387
+38	8912	0.1	1	8618 294
+39	9000	0.1	1	8642 358
+40	7988	0.1	1	7676 312
+41	8069	0.1	1	7780 289
+42	7736	0.1	1	7481 255
+43	6962	0.1	1	6753 209
+44	6710	0.1	1	6475 235
+45	6357	0.1	1	6127 230
+46	6635	0.1	1	6392 243
+47	4643	0.1	1	4501 142
+48	4715	0.1	1	4533 182
+49	4911	0.1	1	4753 158
+50	3671	0.1	1	3559 112
+51	3725	0.1	1	3615 110
+52	3650	0.1	1	3527 123
+53	3382	0.1	1	3272 110
+54	3258	0.1	1	3154 104
+55	2699	0.1	1	2618 81
+56	2882	0.1	1	2789 93
+57	3170	0.1	1	3054 116
+58	1950	0.1	1	1869 81
+59	2104	0.1	1	2038 66
+60	2196	0.1	1	2118 78
+61	1963	0.1	1	1883 80
+62	1609	0.1	1	1545 64
+63	2288	0.1	1	2194 94
+64	1235	0.1	1	1180 55
+65	1215	0.1	1	1174 41
+66	1141	0.1	1	1095 46
+67	1164	0.1	1	1122 42
+68	1138	0.1	1	1091 47
+69	941	0.1	1	906 35
+70	913	0.1	1	866 47
+71	884	0.1	1	847 37
+72	812	0.1	1	776 36
+73	1137	0.1	1	1088 49
+74	860	0.1	1	813 47
+75	812	0.1	1	784 28
+76	377	0.1	1	352 25
+77	286	0.1	1	265 21
+78	323	0.1	1	290 33
+79	294	0.1	1	277 17
+80	293	0.1	1	269 24
+81	311	0.1	1	280 31
+82	282	0.1	1	262 20
+83	273	0.1	1	245 28
+84	236	0.1	1	218 18
+85	215	0.1	1	194 21
+86	227	0.1	1	200 27
+87	190	0.1	1	160 30
+88	182	0.1	1	160 22
+89	171	0.1	1	144 27
+90	170	0.1	1	152 18
+91	149	0.1	1	134 15
+92	139	0.1	1	126 13
+93	114	0.1	1	96 18
+94	110	0.1	1	101 9
+95	109	0.1	1	88 21
+96	116	0.1	1	93 23
+97	104	0.1	1	88 16
+98	100	0.1	1	78 22
+99	98	0.1	1	74 24
+100	82	0.1	1	72 10
+101	92	0.1	1	66 26
+102	70	0.1	1	60 10
+103	82	0.1	1	59 23
+104	70	0.1	1	43 27
+105	62	0.1	1	47 15
+106	57	0.1	1	39 18
+107	67	0.1	1	34 33
+108	50	0.1	1	41 9
+109	43	0.1	1	25 18
+110	68	0.1	1	51 17
+111	54	0.1	1	36 18
+112	39	0.1	1	29 10
+113	40	0.1	1	27 13
+114	34	0.1	1	22 12
+115	53	0.1	1	32 21
+116	55	0.1	1	38 17
+117	41	0.1	1	29 12
+118	40	0.1	1	25 15
+119	39	0.1	1	22 17
+120	28	0.1	1	16 12
+121	29	0.1	1	17 12
+122	28	0.1	1	21 7
+123	30	0.1	1	20 10
+124	28	0.1	1	15 13
+125	20	0.1	1	12 8
+126	20	0.1	1	6 14
+127	21	0.1	1	10 11
+128	17	0.1	1	9 8
+129	11	0.1	1	3 8
+130	10	0.1	1	5 5
+131	12	0.1	1	7 5
+132	12	0.1	1	6 6
+133	13	0.1	1	7 6
+134	11	0.1	1	4 7
+135	12	0.1	1	5 7
+136	7	0.1	1	3 4
+137	6	0.1	1	1 5
+138	7	0.1	1	3 4
+139	12	0.1	1	1 11
+140	4	0.1	1	0 4
+141	6	0.1	1	2 4
+142	10	0.1	1	2 8
+143	8	0.1	1	0 8
+144	7	0.1	1	1 6
+145	5	0.1	1	5
+146	6	0.1	1	1 5
+147	5	0.1	1	1 4
+148	6	0.1	1	3 3
+149	5	0.1	1	1 4
+150	5	0.1	1	0 5
+151	181	0.1	1	151 30
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-47_S1_L005_R2_001.fastq.gz
+=============================================
+8429560 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Validate paired-end files 7523-MM-47_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-47_S1_L005_R2_001_trimmed.fq.gz
+file_1: 7523-MM-47_S1_L005_R1_001_trimmed.fq.gz, file_2: 7523-MM-47_S1_L005_R2_001_trimmed.fq.gz
+
+
+>>>>> Now validing the length of the 2 paired-end infiles: 7523-MM-47_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-47_S1_L005_R2_001_trimmed.fq.gz <<<<<
+Writing validated paired-end Read 1 reads to 7523-MM-47_S1_L005_R1_001_val_1.fq.gz
+Writing validated paired-end Read 2 reads to 7523-MM-47_S1_L005_R2_001_val_2.fq.gz
+
+Total number of sequences analysed: 8429560
+
+Number of sequence pairs removed because at least one read was shorter than the length cutoff (20 bp): 4056 (0.05%)
+
+
+  >>> Now running FastQC on the validated data 7523-MM-47_S1_L005_R1_001_val_1.fq.gz<<<
+
+Can't exec "fastqc": No such file or directory at /home/xiang/src/TrimGalore-0.6.6/trim_galore line 1528, <IN2> line 33718240.
+
+  >>> Now running FastQC on the validated data 7523-MM-47_S1_L005_R2_001_val_2.fq.gz<<<
+
+Can't exec "fastqc": No such file or directory at /home/xiang/src/TrimGalore-0.6.6/trim_galore line 1538, <IN2> line 33718240.
+Deleting both intermediate output files 7523-MM-47_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-47_S1_L005_R2_001_trimmed.fq.gz
+
+====================================================================================================
+
+threads = 24
+out_dir = /home/xiang/New_disk1/CD8_CUTRUN
+trimmer_dir = /home/xiang/src/TrimGalore-0.6.6
+alignment_dir = all_ChIPseq_aligned
+pairend = Yes
+trimmed_dir = /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG
+cutadapt_dir = /home/xiang/miniconda3/bin/cutadapt
+fastq_file1 = /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R1_001.fastq.gz
+Trim paired reads: Yes
+Using an excessive number of cores has a diminishing return! It is recommended not to exceed 8 cores per trimming process (you asked for 24 cores). Please consider re-specifying
+Path to Cutadapt set as: '/home/xiang/miniconda3/bin/cutadapt' (user defined)
+Cutadapt seems to be working fine (tested command '/home/xiang/miniconda3/bin/cutadapt --version')
+Cutadapt version: 3.5
+Cutadapt seems to be using Python 3! Proceeding with multi-core enabled Cutadapt using 24 cores
+pigz 2.6
+Parallel gzip (pigz) detected. Proceeding with multicore (de)compression using 24 cores
+
+No quality encoding type selected. Assuming that the data provided uses Sanger encoded Phred scores (default)
+
+Output will be written into the directory: /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-48_S1_L005_R1_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R1_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j 24
+Writing final adapter and quality trimmed output to 7523-MM-48_S1_L005_R1_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R1_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R1_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 26.79 s (3 µs/read; 20.05 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               8,952,246
+Reads with adapters:                 3,663,662 (40.9%)
+Reads written (passing filters):     8,952,246 (100.0%)
+
+Total basepairs processed: 1,351,789,146 bp
+Quality-trimmed:               3,280,986 bp (0.2%)
+Total written (filtered):  1,330,861,369 bp (98.5%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 3663662 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 29.1%
+  C: 27.1%
+  G: 20.8%
+  T: 23.0%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	2080770	2238061.5	0	2080770
+2	659374	559515.4	0	659374
+3	239821	139878.8	0	239821
+4	70326	34969.7	0	70326
+5	39101	8742.4	0	39101
+6	28038	2185.6	0	28038
+7	24485	546.4	0	24485
+8	25808	136.6	0	25808
+9	23127	34.2	0	22969 158
+10	21690	8.5	1	20825 865
+11	22076	2.1	1	21044 1032
+12	22295	0.5	1	21437 858
+13	20403	0.1	1	19731 672
+14	21097	0.1	1	20201 896
+15	20672	0.1	1	19954 718
+16	19667	0.1	1	18824 843
+17	21012	0.1	1	19977 1035
+18	18749	0.1	1	18138 611
+19	14454	0.1	1	14028 426
+20	16258	0.1	1	15684 574
+21	15671	0.1	1	15079 592
+22	14222	0.1	1	13819 403
+23	14354	0.1	1	13863 491
+24	13472	0.1	1	12874 598
+25	12376	0.1	1	11916 460
+26	10729	0.1	1	10436 293
+27	10885	0.1	1	10483 402
+28	9342	0.1	1	9021 321
+29	9037	0.1	1	8650 387
+30	8831	0.1	1	8565 266
+31	6843	0.1	1	6606 237
+32	7552	0.1	1	7304 248
+33	7346	0.1	1	7072 274
+34	7453	0.1	1	7158 295
+35	6984	0.1	1	6720 264
+36	6434	0.1	1	6233 201
+37	5867	0.1	1	5718 149
+38	5772	0.1	1	5611 161
+39	5645	0.1	1	5443 202
+40	5673	0.1	1	5427 246
+41	4861	0.1	1	4709 152
+42	4714	0.1	1	4571 143
+43	4701	0.1	1	4488 213
+44	4345	0.1	1	4159 186
+45	5936	0.1	1	5796 140
+46	1557	0.1	1	1482 75
+47	2952	0.1	1	2858 94
+48	3317	0.1	1	3192 125
+49	2830	0.1	1	2729 101
+50	1990	0.1	1	1910 80
+51	2617	0.1	1	2510 107
+52	2268	0.1	1	2179 89
+53	1791	0.1	1	1726 65
+54	1854	0.1	1	1795 59
+55	2408	0.1	1	2349 59
+56	1600	0.1	1	1538 62
+57	1607	0.1	1	1553 54
+58	1724	0.1	1	1673 51
+59	1472	0.1	1	1429 43
+60	640	0.1	1	613 27
+61	682	0.1	1	644 38
+62	1664	0.1	1	1622 42
+63	866	0.1	1	850 16
+64	709	0.1	1	684 25
+65	553	0.1	1	519 34
+66	1465	0.1	1	1425 40
+67	564	0.1	1	537 27
+68	695	0.1	1	666 29
+69	320	0.1	1	301 19
+70	181	0.1	1	164 17
+71	126	0.1	1	112 14
+72	243	0.1	1	230 13
+73	354	0.1	1	335 19
+74	340	0.1	1	319 21
+75	372	0.1	1	349 23
+76	309	0.1	1	291 18
+77	305	0.1	1	285 20
+78	276	0.1	1	255 21
+79	248	0.1	1	223 25
+80	271	0.1	1	251 20
+81	236	0.1	1	217 19
+82	218	0.1	1	203 15
+83	193	0.1	1	173 20
+84	194	0.1	1	169 25
+85	165	0.1	1	153 12
+86	143	0.1	1	130 13
+87	121	0.1	1	110 11
+88	136	0.1	1	114 22
+89	99	0.1	1	82 17
+90	110	0.1	1	90 20
+91	98	0.1	1	82 16
+92	96	0.1	1	82 14
+93	68	0.1	1	63 5
+94	74	0.1	1	57 17
+95	87	0.1	1	76 11
+96	77	0.1	1	71 6
+97	83	0.1	1	71 12
+98	62	0.1	1	49 13
+99	64	0.1	1	46 18
+100	64	0.1	1	46 18
+101	55	0.1	1	44 11
+102	39	0.1	1	29 10
+103	54	0.1	1	36 18
+104	47	0.1	1	34 13
+105	37	0.1	1	30 7
+106	47	0.1	1	35 12
+107	38	0.1	1	28 10
+108	51	0.1	1	40 11
+109	44	0.1	1	33 11
+110	27	0.1	1	20 7
+111	39	0.1	1	29 10
+112	28	0.1	1	20 8
+113	29	0.1	1	17 12
+114	19	0.1	1	13 6
+115	38	0.1	1	20 18
+116	29	0.1	1	18 11
+117	26	0.1	1	14 12
+118	24	0.1	1	10 14
+119	22	0.1	1	17 5
+120	24	0.1	1	13 11
+121	18	0.1	1	11 7
+122	29	0.1	1	14 15
+123	21	0.1	1	14 7
+124	14	0.1	1	12 2
+125	11	0.1	1	6 5
+126	12	0.1	1	9 3
+127	18	0.1	1	10 8
+128	9	0.1	1	6 3
+129	14	0.1	1	10 4
+130	15	0.1	1	8 7
+131	9	0.1	1	8 1
+132	10	0.1	1	2 8
+133	16	0.1	1	9 7
+134	11	0.1	1	3 8
+135	11	0.1	1	9 2
+136	16	0.1	1	6 10
+137	8	0.1	1	4 4
+138	8	0.1	1	1 7
+139	13	0.1	1	3 10
+140	13	0.1	1	1 12
+141	4	0.1	1	0 4
+142	10	0.1	1	1 9
+143	3	0.1	1	2 1
+144	6	0.1	1	1 5
+145	7	0.1	1	1 6
+146	16	0.1	1	1 15
+147	12	0.1	1	2 10
+148	7	0.1	1	1 6
+149	10	0.1	1	2 8
+150	6	0.1	1	0 6
+151	762	0.1	1	102 660
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R1_001.fastq.gz
+=============================================
+8952246 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-48_S1_L005_R2_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R2_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j -j 24
+Writing final adapter and quality trimmed output to 7523-MM-48_S1_L005_R2_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R2_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R2_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 32.27 s (4 µs/read; 16.64 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               8,952,246
+Reads with adapters:                 3,682,186 (41.1%)
+Reads written (passing filters):     8,952,246 (100.0%)
+
+Total basepairs processed: 1,351,789,146 bp
+Quality-trimmed:               4,043,351 bp (0.3%)
+Total written (filtered):  1,330,128,360 bp (98.4%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 3682186 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 29.3%
+  C: 27.1%
+  G: 20.6%
+  T: 22.9%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	2090796	2238061.5	0	2090796
+2	665815	559515.4	0	665815
+3	243604	139878.8	0	243604
+4	70145	34969.7	0	70145
+5	38997	8742.4	0	38997
+6	27984	2185.6	0	27984
+7	24665	546.4	0	24665
+8	27346	136.6	0	27346
+9	20725	34.2	0	20553 172
+10	22603	8.5	1	21528 1075
+11	21202	2.1	1	20134 1068
+12	22156	0.5	1	21116 1040
+13	21699	0.1	1	20775 924
+14	22273	0.1	1	21185 1088
+15	18757	0.1	1	17949 808
+16	20060	0.1	1	19199 861
+17	22157	0.1	1	21169 988
+18	13802	0.1	1	13265 537
+19	19563	0.1	1	18731 832
+20	16067	0.1	1	15445 622
+21	12898	0.1	1	12378 520
+22	14694	0.1	1	14087 607
+23	13981	0.1	1	13464 517
+24	13782	0.1	1	13218 564
+25	13916	0.1	1	13398 518
+26	10485	0.1	1	10066 419
+27	9391	0.1	1	8987 404
+28	9747	0.1	1	9441 306
+29	8384	0.1	1	8040 344
+30	8525	0.1	1	8249 276
+31	7433	0.1	1	7136 297
+32	7551	0.1	1	7281 270
+33	7336	0.1	1	7094 242
+34	7470	0.1	1	7202 268
+35	6660	0.1	1	6443 217
+36	6641	0.1	1	6396 245
+37	5856	0.1	1	5702 154
+38	6039	0.1	1	5852 187
+39	5831	0.1	1	5658 173
+40	4997	0.1	1	4805 192
+41	5114	0.1	1	4947 167
+42	4361	0.1	1	4212 149
+43	4775	0.1	1	4616 159
+44	3810	0.1	1	3701 109
+45	4061	0.1	1	3924 137
+46	4138	0.1	1	4020 118
+47	2847	0.1	1	2765 82
+48	2712	0.1	1	2595 117
+49	3154	0.1	1	3044 110
+50	2065	0.1	1	2002 63
+51	2324	0.1	1	2247 77
+52	2168	0.1	1	2080 88
+53	1985	0.1	1	1932 53
+54	2081	0.1	1	2008 73
+55	1530	0.1	1	1484 46
+56	1768	0.1	1	1701 67
+57	1861	0.1	1	1775 86
+58	1207	0.1	1	1157 50
+59	1193	0.1	1	1160 33
+60	1311	0.1	1	1247 64
+61	1206	0.1	1	1175 31
+62	915	0.1	1	882 33
+63	1446	0.1	1	1392 54
+64	793	0.1	1	758 35
+65	769	0.1	1	739 30
+66	696	0.1	1	665 31
+67	633	0.1	1	609 24
+68	676	0.1	1	646 30
+69	577	0.1	1	551 26
+70	559	0.1	1	536 23
+71	539	0.1	1	513 26
+72	488	0.1	1	471 17
+73	657	0.1	1	631 26
+74	494	0.1	1	473 21
+75	523	0.1	1	505 18
+76	272	0.1	1	252 20
+77	175	0.1	1	157 18
+78	206	0.1	1	180 26
+79	184	0.1	1	165 19
+80	222	0.1	1	202 20
+81	206	0.1	1	182 24
+82	193	0.1	1	177 16
+83	168	0.1	1	156 12
+84	174	0.1	1	155 19
+85	185	0.1	1	161 24
+86	125	0.1	1	113 12
+87	134	0.1	1	114 20
+88	131	0.1	1	108 23
+89	91	0.1	1	80 11
+90	114	0.1	1	98 16
+91	101	0.1	1	85 16
+92	97	0.1	1	81 16
+93	86	0.1	1	68 18
+94	73	0.1	1	57 16
+95	92	0.1	1	80 12
+96	77	0.1	1	66 11
+97	93	0.1	1	69 24
+98	71	0.1	1	55 16
+99	67	0.1	1	51 16
+100	64	0.1	1	53 11
+101	62	0.1	1	52 10
+102	43	0.1	1	32 11
+103	59	0.1	1	46 13
+104	45	0.1	1	34 11
+105	39	0.1	1	31 8
+106	60	0.1	1	43 17
+107	48	0.1	1	30 18
+108	56	0.1	1	43 13
+109	45	0.1	1	25 20
+110	41	0.1	1	22 19
+111	37	0.1	1	29 8
+112	35	0.1	1	23 12
+113	33	0.1	1	21 12
+114	28	0.1	1	17 11
+115	36	0.1	1	23 13
+116	35	0.1	1	23 12
+117	27	0.1	1	19 8
+118	20	0.1	1	10 10
+119	30	0.1	1	20 10
+120	24	0.1	1	18 6
+121	24	0.1	1	13 11
+122	33	0.1	1	19 14
+123	24	0.1	1	12 12
+124	22	0.1	1	13 9
+125	20	0.1	1	8 12
+126	18	0.1	1	10 8
+127	17	0.1	1	12 5
+128	21	0.1	1	6 15
+129	25	0.1	1	12 13
+130	22	0.1	1	9 13
+131	17	0.1	1	8 9
+132	4	0.1	1	2 2
+133	18	0.1	1	11 7
+134	11	0.1	1	3 8
+135	17	0.1	1	9 8
+136	11	0.1	1	6 5
+137	11	0.1	1	4 7
+138	4	0.1	1	1 3
+139	7	0.1	1	3 4
+140	9	0.1	1	1 8
+141	5	0.1	1	0 5
+142	4	0.1	1	1 3
+143	8	0.1	1	2 6
+144	5	0.1	1	1 4
+145	6	0.1	1	1 5
+146	7	0.1	1	1 6
+147	3	0.1	1	2 1
+148	6	0.1	1	1 5
+149	9	0.1	1	2 7
+150	4	0.1	1	0 4
+151	121	0.1	1	103 18
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-48_S1_L005_R2_001.fastq.gz
+=============================================
+8952246 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Validate paired-end files 7523-MM-48_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-48_S1_L005_R2_001_trimmed.fq.gz
+file_1: 7523-MM-48_S1_L005_R1_001_trimmed.fq.gz, file_2: 7523-MM-48_S1_L005_R2_001_trimmed.fq.gz
+
+
+>>>>> Now validing the length of the 2 paired-end infiles: 7523-MM-48_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-48_S1_L005_R2_001_trimmed.fq.gz <<<<<
+Writing validated paired-end Read 1 reads to 7523-MM-48_S1_L005_R1_001_val_1.fq.gz
+Writing validated paired-end Read 2 reads to 7523-MM-48_S1_L005_R2_001_val_2.fq.gz
+
+Total number of sequences analysed: 8952246
+
+Number of sequence pairs removed because at least one read was shorter than the length cutoff (20 bp): 2116 (0.02%)
+
+
+  >>> Now running FastQC on the validated data 7523-MM-48_S1_L005_R1_001_val_1.fq.gz<<<
+
+Can't exec "fastqc": No such file or directory at /home/xiang/src/TrimGalore-0.6.6/trim_galore line 1528, <IN2> line 35808984.
+
+  >>> Now running FastQC on the validated data 7523-MM-48_S1_L005_R2_001_val_2.fq.gz<<<
+
+Can't exec "fastqc": No such file or directory at /home/xiang/src/TrimGalore-0.6.6/trim_galore line 1538, <IN2> line 35808984.
+Deleting both intermediate output files 7523-MM-48_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-48_S1_L005_R2_001_trimmed.fq.gz
+
+====================================================================================================
+
+threads = 24
+out_dir = /home/xiang/New_disk1/CD8_CUTRUN
+trimmer_dir = /home/xiang/src/TrimGalore-0.6.6
+alignment_dir = all_ChIPseq_aligned
+pairend = Yes
+trimmed_dir = /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG
+cutadapt_dir = /home/xiang/miniconda3/bin/cutadapt
+fastq_file1 = /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R1_001.fastq.gz
+Trim paired reads: Yes
+Using an excessive number of cores has a diminishing return! It is recommended not to exceed 8 cores per trimming process (you asked for 24 cores). Please consider re-specifying
+Path to Cutadapt set as: '/home/xiang/miniconda3/bin/cutadapt' (user defined)
+Cutadapt seems to be working fine (tested command '/home/xiang/miniconda3/bin/cutadapt --version')
+Cutadapt version: 3.5
+Cutadapt seems to be using Python 3! Proceeding with multi-core enabled Cutadapt using 24 cores
+pigz 2.6
+Parallel gzip (pigz) detected. Proceeding with multicore (de)compression using 24 cores
+
+No quality encoding type selected. Assuming that the data provided uses Sanger encoded Phred scores (default)
+
+Output will be written into the directory: /home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-49_S1_L005_R1_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R1_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j 24
+Writing final adapter and quality trimmed output to 7523-MM-49_S1_L005_R1_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R1_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R1_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 24.43 s (3 µs/read; 21.60 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               8,795,378
+Reads with adapters:                 3,693,974 (42.0%)
+Reads written (passing filters):     8,795,378 (100.0%)
+
+Total basepairs processed: 1,328,102,078 bp
+Quality-trimmed:               3,196,933 bp (0.2%)
+Total written (filtered):  1,304,689,236 bp (98.2%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 3693974 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 29.1%
+  C: 26.7%
+  G: 20.9%
+  T: 23.2%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	2020508	2198844.5	0	2020508
+2	636994	549711.1	0	636994
+3	236804	137427.8	0	236804
+4	72854	34356.9	0	72854
+5	42476	8589.2	0	42476
+6	31553	2147.3	0	31553
+7	28453	536.8	0	28453
+8	29747	134.2	0	29747
+9	26400	33.6	0	26237 163
+10	25436	8.4	1	24534 902
+11	25935	2.1	1	24709 1226
+12	25958	0.5	1	24905 1053
+13	23240	0.1	1	22450 790
+14	24183	0.1	1	23178 1005
+15	23864	0.1	1	22985 879
+16	22923	0.1	1	21860 1063
+17	23907	0.1	1	22721 1186
+18	22410	0.1	1	21707 703
+19	16854	0.1	1	16311 543
+20	19024	0.1	1	18338 686
+21	18557	0.1	1	17824 733
+22	16407	0.1	1	15951 456
+23	16889	0.1	1	16303 586
+24	15574	0.1	1	14875 699
+25	15051	0.1	1	14491 560
+26	12965	0.1	1	12573 392
+27	13352	0.1	1	12892 460
+28	11730	0.1	1	11378 352
+29	11482	0.1	1	10966 516
+30	11619	0.1	1	11315 304
+31	8499	0.1	1	8236 263
+32	9741	0.1	1	9416 325
+33	9251	0.1	1	8925 326
+34	8915	0.1	1	8610 305
+35	8977	0.1	1	8645 332
+36	8488	0.1	1	8144 344
+37	9034	0.1	1	8601 433
+38	6551	0.1	1	6340 211
+39	7688	0.1	1	7437 251
+40	6761	0.1	1	6561 200
+41	5930	0.1	1	5766 164
+42	6242	0.1	1	6041 201
+43	7347	0.1	1	7045 302
+44	4296	0.1	1	4150 146
+45	8218	0.1	1	8002 216
+46	1757	0.1	1	1677 80
+47	3995	0.1	1	3866 129
+48	7405	0.1	1	7203 202
+49	2757	0.1	1	2670 87
+50	1993	0.1	1	1918 75
+51	3927	0.1	1	3786 141
+52	3082	0.1	1	3011 71
+53	1776	0.1	1	1715 61
+54	2491	0.1	1	2404 87
+55	4779	0.1	1	4671 108
+56	1725	0.1	1	1670 55
+57	1724	0.1	1	1674 50
+58	1334	0.1	1	1290 44
+59	1789	0.1	1	1740 49
+60	443	0.1	1	417 26
+61	516	0.1	1	493 23
+62	2124	0.1	1	2081 43
+63	671	0.1	1	646 25
+64	485	0.1	1	461 24
+65	594	0.1	1	563 31
+66	1552	0.1	1	1518 34
+67	301	0.1	1	280 21
+68	534	0.1	1	513 21
+69	334	0.1	1	317 17
+70	221	0.1	1	208 13
+71	99	0.1	1	89 10
+72	228	0.1	1	223 5
+73	359	0.1	1	341 18
+74	366	0.1	1	347 19
+75	373	0.1	1	358 15
+76	383	0.1	1	369 14
+77	348	0.1	1	328 20
+78	287	0.1	1	276 11
+79	284	0.1	1	265 19
+80	257	0.1	1	242 15
+81	245	0.1	1	225 20
+82	198	0.1	1	188 10
+83	198	0.1	1	180 18
+84	202	0.1	1	190 12
+85	158	0.1	1	145 13
+86	153	0.1	1	139 14
+87	128	0.1	1	117 11
+88	121	0.1	1	110 11
+89	117	0.1	1	105 12
+90	107	0.1	1	96 11
+91	84	0.1	1	72 12
+92	96	0.1	1	80 16
+93	83	0.1	1	70 13
+94	71	0.1	1	59 12
+95	64	0.1	1	56 8
+96	66	0.1	1	52 14
+97	70	0.1	1	53 17
+98	55	0.1	1	44 11
+99	44	0.1	1	36 8
+100	45	0.1	1	33 12
+101	29	0.1	1	24 5
+102	39	0.1	1	32 7
+103	40	0.1	1	30 10
+104	40	0.1	1	24 16
+105	28	0.1	1	17 11
+106	41	0.1	1	28 13
+107	26	0.1	1	13 13
+108	33	0.1	1	18 15
+109	25	0.1	1	15 10
+110	37	0.1	1	28 9
+111	20	0.1	1	7 13
+112	20	0.1	1	11 9
+113	25	0.1	1	15 10
+114	17	0.1	1	13 4
+115	12	0.1	1	7 5
+116	20	0.1	1	12 8
+117	21	0.1	1	7 14
+118	21	0.1	1	8 13
+119	14	0.1	1	9 5
+120	27	0.1	1	16 11
+121	20	0.1	1	14 6
+122	16	0.1	1	9 7
+123	16	0.1	1	11 5
+124	12	0.1	1	2 10
+125	13	0.1	1	6 7
+126	19	0.1	1	7 12
+127	13	0.1	1	3 10
+128	13	0.1	1	3 10
+129	17	0.1	1	8 9
+130	7	0.1	1	1 6
+131	10	0.1	1	2 8
+132	12	0.1	1	1 11
+133	10	0.1	1	2 8
+134	10	0.1	1	3 7
+135	10	0.1	1	2 8
+136	5	0.1	1	0 5
+137	11	0.1	1	6 5
+138	10	0.1	1	5 5
+139	4	0.1	1	0 4
+140	7	0.1	1	0 7
+141	9	0.1	1	0 9
+142	9	0.1	1	1 8
+143	6	0.1	1	0 6
+144	7	0.1	1	2 5
+145	6	0.1	1	1 5
+146	9	0.1	1	0 9
+147	9	0.1	1	0 9
+148	6	0.1	1	0 6
+149	11	0.1	1	0 11
+150	4	0.1	1	1 3
+151	443	0.1	1	45 398
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R1_001.fastq.gz
+=============================================
+8795378 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Writing report to '/home/xiang/New_disk1/CD8_CUTRUN/all_trimmed_OG/7523-MM-49_S1_L005_R2_001.fastq.gz_trimming_report.txt'
+
+SUMMARISING RUN PARAMETERS
+==========================
+Input filename: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R2_001.fastq.gz
+Trimming mode: paired-end
+Trim Galore version: 0.6.6
+Cutadapt version: 3.5
+Python version: 3.9.1
+Number of cores used for trimming: 24
+Quality Phred score cutoff: 20
+Quality encoding type selected: ASCII+33
+Adapter sequence: 'AGATCGGAAGAGC' (Illumina TruSeq, Sanger iPCR; user defined)
+Maximum trimming error rate: 0.1 (default)
+Minimum required adapter overlap (stringency): 1 bp
+Minimum required sequence length for both reads before a sequence pair gets removed: 20 bp
+Running FastQC on the data once trimming has completed
+Output file(s) will be GZIP compressed
+
+Cutadapt seems to be fairly up-to-date (version 3.5). Setting -j -j 24
+Writing final adapter and quality trimmed output to 7523-MM-49_S1_L005_R2_001_trimmed.fq.gz
+
+
+  >>> Now performing quality (cutoff '-q 20') and adapter trimming in a single pass for the adapter sequence: 'AGATCGGAAGAGC' from file /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R2_001.fastq.gz <<< 
+This is cutadapt 3.5 with Python 3.9.1
+Command line parameters: -j 24 -e 0.1 -q 20 -O 1 -a AGATCGGAAGAGC /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R2_001.fastq.gz
+Processing reads on 24 cores in single-end mode ...
+Finished in 28.09 s (3 µs/read; 18.79 M reads/minute).
+
+=== Summary ===
+
+Total reads processed:               8,795,378
+Reads with adapters:                 3,712,810 (42.2%)
+Reads written (passing filters):     8,795,378 (100.0%)
+
+Total basepairs processed: 1,328,102,078 bp
+Quality-trimmed:               3,482,678 bp (0.3%)
+Total written (filtered):  1,304,338,647 bp (98.2%)
+
+=== Adapter 1 ===
+
+Sequence: AGATCGGAAGAGC; Type: regular 3'; Length: 13; Trimmed: 3712810 times
+
+Minimum overlap: 1
+No. of allowed errors:
+1-9 bp: 0; 10-13 bp: 1
+
+Bases preceding removed adapters:
+  A: 29.3%
+  C: 26.8%
+  G: 20.9%
+  T: 23.0%
+  none/other: 0.0%
+
+Overview of removed sequences
+length	count	expect	max.err	error counts
+1	2028082	2198844.5	0	2028082
+2	645873	549711.1	0	645873
+3	238842	137427.8	0	238842
+4	73317	34356.9	0	73317
+5	42776	8589.2	0	42776
+6	31478	2147.3	0	31478
+7	29019	536.8	0	29019
+8	33169	134.2	0	33169
+9	22105	33.6	0	21945 160
+10	26463	8.4	1	25137 1326
+11	24971	2.1	1	23615 1356
+12	26059	0.5	1	24674 1385
+13	24230	0.1	1	23071 1159
+14	26416	0.1	1	25000 1416
+15	20929	0.1	1	19907 1022
+16	23539	0.1	1	22364 1175
+17	25982	0.1	1	24646 1336
+18	15998	0.1	1	15207 791
+19	22519	0.1	1	21353 1166
+20	18620	0.1	1	17840 780
+21	16013	0.1	1	15310 703
+22	16969	0.1	1	16199 770
+23	16245	0.1	1	15533 712
+24	15634	0.1	1	14941 693
+25	16548	0.1	1	15805 743
+26	12862	0.1	1	12275 587
+27	12522	0.1	1	11914 608
+28	11924	0.1	1	11499 425
+29	10749	0.1	1	10278 471
+30	11099	0.1	1	10639 460
+31	9553	0.1	1	9159 394
+32	9460	0.1	1	9096 364
+33	9266	0.1	1	8911 355
+34	9109	0.1	1	8738 371
+35	9261	0.1	1	8872 389
+36	7650	0.1	1	7403 247
+37	7870	0.1	1	7603 267
+38	7572	0.1	1	7308 264
+39	8679	0.1	1	8319 360
+40	6624	0.1	1	6402 222
+41	5538	0.1	1	5316 222
+42	6217	0.1	1	5990 227
+43	5670	0.1	1	5465 205
+44	5196	0.1	1	4988 208
+45	5233	0.1	1	5016 217
+46	5363	0.1	1	5196 167
+47	3695	0.1	1	3565 130
+48	3785	0.1	1	3658 127
+49	3914	0.1	1	3766 148
+50	2946	0.1	1	2856 90
+51	2863	0.1	1	2766 97
+52	2842	0.1	1	2731 111
+53	2668	0.1	1	2582 86
+54	2668	0.1	1	2574 94
+55	2026	0.1	1	1963 63
+56	2188	0.1	1	2106 82
+57	2262	0.1	1	2169 93
+58	1563	0.1	1	1499 64
+59	1480	0.1	1	1422 58
+60	1643	0.1	1	1565 78
+61	1435	0.1	1	1384 51
+62	1135	0.1	1	1096 39
+63	1612	0.1	1	1553 59
+64	970	0.1	1	936 34
+65	937	0.1	1	901 36
+66	798	0.1	1	763 35
+67	792	0.1	1	768 24
+68	782	0.1	1	751 31
+69	681	0.1	1	660 21
+70	601	0.1	1	569 32
+71	605	0.1	1	572 33
+72	554	0.1	1	529 25
+73	698	0.1	1	675 23
+74	571	0.1	1	546 25
+75	546	0.1	1	516 30
+76	294	0.1	1	280 14
+77	227	0.1	1	212 15
+78	234	0.1	1	217 17
+79	216	0.1	1	197 19
+80	204	0.1	1	189 15
+81	205	0.1	1	187 18
+82	179	0.1	1	162 17
+83	175	0.1	1	163 12
+84	193	0.1	1	171 22
+85	151	0.1	1	135 16
+86	150	0.1	1	130 20
+87	123	0.1	1	109 14
+88	106	0.1	1	98 8
+89	115	0.1	1	97 18
+90	119	0.1	1	100 19
+91	80	0.1	1	66 14
+92	97	0.1	1	79 18
+93	81	0.1	1	70 11
+94	64	0.1	1	51 13
+95	63	0.1	1	54 9
+96	64	0.1	1	53 11
+97	67	0.1	1	55 12
+98	61	0.1	1	44 17
+99	59	0.1	1	42 17
+100	42	0.1	1	33 9
+101	33	0.1	1	26 7
+102	39	0.1	1	32 7
+103	41	0.1	1	26 15
+104	39	0.1	1	23 16
+105	28	0.1	1	22 6
+106	46	0.1	1	27 19
+107	32	0.1	1	16 16
+108	27	0.1	1	17 10
+109	24	0.1	1	15 9
+110	35	0.1	1	24 11
+111	22	0.1	1	12 10
+112	31	0.1	1	14 17
+113	27	0.1	1	14 13
+114	26	0.1	1	15 11
+115	19	0.1	1	11 8
+116	17	0.1	1	13 4
+117	14	0.1	1	8 6
+118	24	0.1	1	10 14
+119	24	0.1	1	16 8
+120	26	0.1	1	15 11
+121	28	0.1	1	17 11
+122	14	0.1	1	8 6
+123	15	0.1	1	9 6
+124	12	0.1	1	6 6
+125	18	0.1	1	7 11
+126	18	0.1	1	12 6
+127	15	0.1	1	4 11
+128	12	0.1	1	4 8
+129	18	0.1	1	8 10
+130	8	0.1	1	2 6
+131	14	0.1	1	2 12
+132	6	0.1	1	1 5
+133	8	0.1	1	3 5
+134	12	0.1	1	3 9
+135	8	0.1	1	2 6
+136	5	0.1	1	0 5
+137	14	0.1	1	4 10
+138	18	0.1	1	5 13
+139	6	0.1	1	0 6
+140	8	0.1	1	0 8
+141	3	0.1	1	0 3
+142	7	0.1	1	1 6
+143	10	0.1	1	0 10
+144	6	0.1	1	2 4
+145	8	0.1	1	1 7
+146	4	0.1	1	0 4
+147	5	0.1	1	0 5
+148	7	0.1	1	0 7
+149	12	0.1	1	0 12
+150	6	0.1	1	1 5
+151	69	0.1	1	45 24
+
+RUN STATISTICS FOR INPUT FILE: /home/xiang/New_disk1/CD8_CUTRUN/OG/7523-MM-49_S1_L005_R2_001.fastq.gz
+=============================================
+8795378 sequences processed in total
+The length threshold of paired-end sequences gets evaluated later on (in the validation step)
+
+Validate paired-end files 7523-MM-49_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-49_S1_L005_R2_001_trimmed.fq.gz
+file_1: 7523-MM-49_S1_L005_R1_001_trimmed.fq.gz, file_2: 7523-MM-49_S1_L005_R2_001_trimmed.fq.gz
+
+
+>>>>> Now validing the length of the 2 paired-end infiles: 7523-MM-49_S1_L005_R1_001_trimmed.fq.gz and 7523-MM-49_S1_L005_R2_001_trimmed.fq.gz <<<<<
+Writing validated paired-end Read 1 reads to 7523-MM-49_S1_L005_R1_001_val_1.fq.gz
+Writing validated paired-end Read 2 reads to 7523-MM-49_S1_L005_R2_001_val_2.fq.gz
+
+/home/xiang/New_disk1/CD8_CUTRUN/OG
+Traceback (most recent call last):
+  File "/home/xiang/Dropbox/ChIPseqAna/Run_CD8_CUTRUN_ana.py", line 71, in <module>
+    subprocess.run(["./bash/step1_reads_trimming.sh", thread_num, out_dir, trimmer_dir, alignment_dir, pair_end, trimmed_path, cutadapt_dir, file1, file2])
+  File "/home/xiang/miniconda3/lib/python3.9/subprocess.py", line 503, in run
+    stdout, stderr = process.communicate(input, timeout=timeout)
+  File "/home/xiang/miniconda3/lib/python3.9/subprocess.py", line 1122, in communicate
+    self.wait()
+  File "/home/xiang/miniconda3/lib/python3.9/subprocess.py", line 1185, in wait
+    return self._wait(timeout=timeout)
+  File "/home/xiang/miniconda3/lib/python3.9/subprocess.py", line 1915, in _wait
+    (pid, sts) = self._try_wait(0)
+  File "/home/xiang/miniconda3/lib/python3.9/subprocess.py", line 1873, in _try_wait
+    (pid, sts) = os.waitpid(self.pid, wait_flags)
+KeyboardInterrupt
