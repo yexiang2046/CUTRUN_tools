@@ -9,3 +9,11 @@ resource/
 SAMPLE_SHEET/
 TXT/
 ChIPQCreport/
+
+*.csv
+*.pdf
+*.eps
+*.tiff
+*.xlsx
+*.out
+*.txt

@@ -18,8 +18,8 @@ T48me3_FILEs_log=("T48hr_CTL_H3K27me3.bw" "T48hr_CB839_H3K27me3.bw" "T48hr_DON_H
 T48hr_H3K27ac_all_peaks=(${DATA_DIR}/T48hr_CTL_H3K27ac_idr.05.bed ${DATA_DIR}/T48hr_CB839_H3K27ac_idr.05.bed ${DATA_DIR}/T48hr_DON_H3K27ac_idr.05.bed ${DATA_DIR}/T48hr_NoQ_H3K27ac_idr.05.bed)
 T48hr_H3K27me3_all_peaks=(${DATA_DIR}/T48hr_CTL_H3K27me3_idr.05.bed ${DATA_DIR}/T48hr_CB839_H3K27me3_idr.05.bed ${DATA_DIR}/T48hr_DON_H3K27me3_idr.05.bed ${DATA_DIR}/T48hr_NoQ_H3K27me3_idr.05.bed)
 
-T48hr_H3K27ac_peaks=T48hr_H3K27ac.bed
-T48hr_H3K27me3_peaks=T48hr_H3K27me3.bed
+T48hr_H3K27ac_peaks=${DATA_DIR}/T48hr_H3K27ac.bed
+T48hr_H3K27me3_peaks=${DATA_DIR}/T48hr_H3K27me3.bed
 
 T48hr_peaks=T48hr_ac_me3.bed
 
@@ -81,12 +81,12 @@ cd ${WORK_DIR}
 annotatePeaks.pl ${T48hr_H3K27ac_peaks} mm10 -cpu 20 > T48hr_H3K27ac_annotation.txt
 annotatePeaks.pl ${T48hr_H3K27me3_peaks} mm10 -cpu 20 > T48hr_H3K27me3_annotation.txt
 
-for f in "${T48hr_H3K27ac_all_peaks[@]}"
-do
-    annotatePeaks.pl $f mm10 -cpu 20 > $(basename -s .bed $f).annotation.txt
-done
+# for f in "${T48hr_H3K27ac_all_peaks[@]}"
+# do
+#     annotatePeaks.pl $f mm10 -cpu 20 > $(basename -s .bed $f).annotation.txt
+# done
 
-for f in "${T48hr_H3K27me3_all_peaks[@]}"
-do
-    annotatePeaks.pl $f mm10 -cpu 20 > $(basename -s .bed $f).annotation.txt
-done
+# for f in "${T48hr_H3K27me3_all_peaks[@]}"
+# do
+#     annotatePeaks.pl $f mm10 -cpu 20 > $(basename -s .bed $f).annotation.txt
+# done

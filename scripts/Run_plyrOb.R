@@ -302,32 +302,32 @@ epi_T48hr_merged_peaks <- "/home/xiang/New_disk1/CD8_CUTRUN/data/T48hr_ac_me3.be
 
 epi_T48hr_ac_me3_peaks <- c("/home/xiang/New_disk1/CD8_CUTRUN/data/T48hr_H3K27ac.bed", "/home/xiang/New_disk1/CD8_CUTRUN/data/T48hr_H3K27me3.bed")
 
-
-proplyrObject_CD8_epi <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DIR, "/", T48hr_bam),
+if(FALSE){
+	proplyrObject_CD8_epi <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DIR, "/", T48hr_bam),
                                         peaks_bed = epi_T48hr_merged_peaks,
                                         samplesID = T48hr_ID,
                                         outputFile = "CD8_epi_48hr_proplyrObject.rds")
 
-proplyrObject_CD8_merged_epi <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DATA, "/", T48hr_merged_bam),
+	proplyrObject_CD8_merged_epi <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DATA, "/", T48hr_merged_bam),
                                         peaks_bed = epi_T48hr_merged_peaks,
                                         samplesID = T48hr_merged_ID,
                                         outputFile = "CD8_epi_48hr_merged_proplyrObject.rds")
 
 
-proplyrObject_CD8_ac_me3 <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DIR, "/", T48hr_bam),
+	proplyrObject_CD8_ac_me3 <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DIR, "/", T48hr_bam),
                                         peaks_bed = epi_T48hr_ac_me3_peaks,
                                         samplesID = T48hr_ID,
                                         outputFile = "CD8_ac_me3_48hr_proplyrObject.rds")
 
-proplyrObject_CD8_ac_me3_merged <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DATA, "/", T48hr_merged_bam),
+	proplyrObject_CD8_ac_me3_merged <- generate_proplyrObject_from_bam(bam_files = paste0(BAM_DATA, "/", T48hr_merged_bam),
                                         peaks_bed = epi_T48hr_ac_me3_peaks,
                                         samplesID = T48hr_merged_ID,
                                         outputFile = "CD8_ac_me3_48hr_merged_proplyrObject.rds")
+}
 
 
-
-proplyrObject_CD8_epi <- readRDS("CD8_epi_48hr_proplyrObject.rds")
-proplyrObject_CD8_ac_me3 <- readRDS("CD8_ac_me3_48hr_proplyrObject.rds")
+proplyrObject_CD8_epi <- readRDS("RDS/CD8_epi_48hr_proplyrObject.rds")
+proplyrObject_CD8_ac_me3 <- readRDS("RDS/CD8_ac_me3_48hr_proplyrObject.rds")
 
 
 proplyrObject_CD8_epi_long <- summarize(proplyrObject_CD8_epi, fun = rowMeans,
@@ -341,17 +341,29 @@ proplyrObject_CD8_ac_me3_merged_long <- summarize(proplyrObject_CD8_ac_me3_merge
                                         output = "long")
 
 
-saveRDS(proplyrObject_CD8_epi_long, file = "RDS/proplyrObject_CD8_epi_long.rds")
-saveRDS(proplyrObject_CD8_ac_me3_long, file = "RDS/proplyrObject_CD8_ac_me3_long.rds")
+# saveRDS(proplyrObject_CD8_epi_long, file = "RDS/proplyrObject_CD8_epi_long.rds")
+# saveRDS(proplyrObject_CD8_ac_me3_long, file = "RDS/proplyrObject_CD8_ac_me3_long.rds")
+
+proplyrObject_CD8_ac_me3_long <- readRDS(file = "RDS/proplyrObject_CD8_ac_me3_long.rds")
+
+proplyrObject_CD8_ac_me3_long$Sample <- factor(proplyrObject_CD8_ac_me3_long$Sample, levels =  rev(c("T48hr_CTL_K27me3_b2_A", "T48hr_CTL_K27me3_b2_B", "T48hr_CB839_K27me3_b2_A", "T48hr_CB839_K27me3_b2_B", "T48hr_DON_K27me3_b2_A", "T48hr_DON_K27me3_b2_B","T48hr_NoQ_K27me3_b2_A", "T48hr_NoQ_K27me3_b2_B", "T48hr_CTL_K27ac_b2_A", "T48hr_CTL_K27ac_b2_B", "T48hr_CB839_K27ac_b2_A", "T48hr_CB839_K27ac_b2_B", "T48hr_DON_K27ac_b2_A", "T48hr_DON_K27ac_b2_B","T48hr_NoQ_K27ac_b2_A", "T48hr_NoQ_K27ac_b2_B")))
+
+proplyrObject_CD8_ac_me3_long %>% filter(sgGroup %in% "T48hr_H3K27me3.bed") %>% filter(Sample %in% c("T48hr_CTL_K27me3_b2_A", "T48hr_CTL_K27me3_b2_B", "T48hr_CB839_K27me3_b2_A", "T48hr_CB839_K27me3_b2_B", "T48hr_DON_K27me3_b2_A", "T48hr_DON_K27me3_b2_B","T48hr_NoQ_K27me3_b2_A", "T48hr_NoQ_K27me3_b2_B")) %>% ggplot(aes(x = Sample, y = Signal)) +
+  geom_boxplot() + coord_flip() + ggtitle("T48hr_H3K27me3_signal_intensity (RPM)")
+ggsave(filename = "H3K27me3_signal_CPM_samples.pdf", width = 5, height = 10)
+
+proplyrObject_CD8_ac_me3_long %>% filter(sgGroup %in% "T48hr_H3K27me3.bed") %>% filter(Sample %in% c("T48hr_CTL_K27me3_b2_A", "T48hr_CTL_K27me3_b2_B", "T48hr_CB839_K27me3_b2_A", "T48hr_CB839_K27me3_b2_B", "T48hr_DON_K27me3_b2_A", "T48hr_DON_K27me3_b2_B","T48hr_NoQ_K27me3_b2_A", "T48hr_NoQ_K27me3_b2_B")) %>% ggplot(aes(x = Sample, y = Signal)) +
+  geom_boxplot() + coord_flip(ylim = c(0.5, 2)) + ggtitle("T48hr_H3K27me3_signal_intensity (RPM)")
+ggsave(filename = "H3K27me3_signal_CPM_samples_zoom.pdf", width = 5, height = 10)
 
 
+proplyrObject_CD8_ac_me3_long %>% filter(sgGroup %in% "T48hr_H3K27ac.bed") %>% filter(Sample %in% c("T48hr_CTL_K27ac_b2_A", "T48hr_CTL_K27ac_b2_B", "T48hr_CB839_K27ac_b2_A", "T48hr_CB839_K27ac_b2_B", "T48hr_DON_K27ac_b2_A", "T48hr_DON_K27ac_b2_B","T48hr_NoQ_K27ac_b2_A", "T48hr_NoQ_K27ac_b2_B")) %>% ggplot(aes(x = Sample, y = Signal)) +
+  geom_boxplot() + coord_flip() + ggtitle("T48hr_H3K27ac_signal_intensity (RPM)")
+ggsave(filename = "H3K27ac_signal_CPM_samples.pdf", width = 5, height = 10)
 
-proplyrObject_CD8_ac_me3_long %>% filter(sgGroup %in% "T48hr_H3K27me3.bed") %>% ggplot(aes(x = Sample, y = log(Signal))) +
-  geom_boxplot() + coord_flip()
-
-proplyrObject_CD8_ac_me3_long %>% filter(sgGroup %in% "T48hr_H3K27ac.bed") %>% ggplot(aes(x = Sample, y = log(Signal))) +
-  geom_boxplot() + coord_flip()
-
+proplyrObject_CD8_ac_me3_long %>% filter(sgGroup %in% "T48hr_H3K27ac.bed") %>% filter(Sample %in% c("T48hr_CTL_K27ac_b2_A", "T48hr_CTL_K27ac_b2_B", "T48hr_CB839_K27ac_b2_A", "T48hr_CB839_K27ac_b2_B", "T48hr_DON_K27ac_b2_A", "T48hr_DON_K27ac_b2_B","T48hr_NoQ_K27ac_b2_A", "T48hr_NoQ_K27ac_b2_B")) %>% ggplot(aes(x = Sample, y = Signal)) +
+  geom_boxplot() + coord_flip(ylim = c(0.5, 2))  + ggtitle("T48hr_H3K27ac_signal_intensity (RPM)")
+ggsave(filename = "H3K27ac_signal_CPM_samples_zoom.pdf", width = 5, height = 10)
 
 
 ggplot(proplyrObject_CD8_epi_long, aes(x = Sample, y = log(Signal))) +
