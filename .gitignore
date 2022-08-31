@@ -17,3 +17,5 @@ ChIPQCreport/
 *.xlsx
 *.out
 *.txt
+*.zip
+*.gz
