@@ -66,7 +66,7 @@ def get_fastq(configfile):
     with open(configfile) as f:
         files = []
         for line in f:
-            line.rstrip()
+            line.strip()
             fq = re.match(r"^(.*fastq\.gz$)", line)
             if fq:
                 file = fq.group(1)
