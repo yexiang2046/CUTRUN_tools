@@ -27,9 +27,9 @@ Functions
  
  Usage
   1.  trim reads
-'''shell
+	'''shell
 	./bash/fastp_trim.sh read1_pattern read2_pattern folder_of_fastq_files 
-'''
+	'''
   2.  align with bowtie2
 '''shell
 	./bash/bowtie2_align.sh FILE_PATH READ1_PAT READ2_PAT GENOME OUT_PATH
