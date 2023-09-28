@@ -2,14 +2,14 @@
 CUT&RUN data anlysis pipeline, doing CUT&RUN fastq files QC,alignment, and peak calliing. This pipeline will also generate bigwig files for viewing in genome browsers
 
 
-Functions
+##Functions
   1.  QC for raw reads
   2.  Alignment reads with bowtie2
   3.  Callpeaks with MACS2
   4.  Generate bigwig files for genome browser
   
   
- Dependencies
+ ##Dependencies
  
  Command line tools
   1.  FastQC
@@ -25,7 +25,7 @@ Functions
   2.  ChIPseeker
   3.  DiffBind
  
- Usage
+ ##Usage
   1.  trim reads
 	```console
 	./bash/fastp_trim.sh read1_pattern read2_pattern folder_of_fastq_files 
