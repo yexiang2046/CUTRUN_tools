@@ -1,6 +1,17 @@
 import re
 import subprocess
 import os
+import json
+
+
+
+# function to parse json file
+
+def parse_samples_for_callpeaks(json_file):
+    f = open(json_file)
+    sample_pair = json.load(f)
+    f.close()
+    return sample_pair
 
 
 def get_para(configfile):
