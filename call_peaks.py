@@ -50,7 +50,7 @@ for sample,replicate in samples.items():
         control_bam = files[0]
         #print(treatment_bam)
         #print(control_bam)
-        call_peaks_macs2(treatment_bam, control_bam, output_dir, rep + "_")
+        call_peaks_macs2(treatment_bam, control_bam, output_dir, rep)
     if len(samples[sample]) == 3:
         #print(len(samples[sample]))
         for key in replicate:
