@@ -6,8 +6,7 @@ import utils
 # define helper functions
 # function to parse command line arguments inlcuding json file
 def parse_args():
-    """
-    Parse command line arguments.
+    """ Parse command line arguments.
     """
     parser = argparse.ArgumentParser(description="Call peaks using MACS2.")
     parser.add_argument("--json", type=str, required=True, help="Path to JSON file containing sample information.")
@@ -30,7 +29,7 @@ def get_reproducible_peaks(out_name, rep1, rep2, output_dir, idr_threshold = 0.0
     """
     Get reproducible peaks using IDR.
     """
-    cmd = f"idr --samples {rep1} {rep2} --input-file-type narrowPeak --output-file {out_name}_reproducible_peaks.txt --rank signal.value --plot --log-output-file {out_name}_idr.log --output-dir {output_dir} --idr-threshold {idr_threshold}"
+    cmd = f"idr --samples {rep1} {rep2} --input-file-type narrowPeak --output-file {out_name}_reproducible_peaks.txt --rank signal.value --plot --log-output-file {out_name}_idr.log --idr-threshold {idr_threshold}"
     os.system(cmd)
 
 
@@ -53,20 +52,32 @@ for sample,replicate in samples.items():
         call_peaks_macs2(treatment_bam, control_bam, output_dir, rep)
     if len(samples[sample]) == 3:
         #print(len(samples[sample]))
+        """
         for key in replicate:
             print(key)
             print(replicate[key])
-           
+        """   
         # get reproducible peaks
         # get replicates from samples
         reps_keys = list(replicate.keys())
-        rep1 = reps_keys[0] + "_peaks.narrowPeak"
-        rep2 = reps_keys[1] + "_peaks.narrowPeak"
-        rep3 = reps_keys[2] + "_peaks.narrowPeak"
-        print(rep1, rep2, rep3)
-        get_reproducible_peaks(out_name="rep1" + "_rep2", rep1=rep1, rep2=rep2, output_dir=output_dir)
-        get_reproducible_peaks(out_name="rep1" + "_rep3", rep1=rep1, rep2=rep3, output_dir=output_dir)
-        get_reproducible_peaks(out_name=sample, rep1="rep1" + "_rep2" + "_reproducible_peaks.txt", rep2="rep1" + "_rep3" + "_reproducible_peaks.txt", output_dir=output_dir)
+        file1 = reps_keys[0] + "_peaks.narrowPeak"
+        rep1 = os.path.join(output_dir, file1)
+        file2 = reps_keys[1] + "_peaks.narrowPeak"
+        rep2 = os.path.join(output_dir, file2)
+        file3 = reps_keys[2] + "_peaks.narrowPeak"
+        rep3 = os.path.join(output_dir, file3)
+        #print(rep1, rep2, rep3)
+        get_reproducible_peaks(out_name=sample + "_rep1" + "_rep2", rep1=rep1, rep2=rep2, output_dir=output_dir)
+        get_reproducible_peaks(out_name=sample + "_rep1" + "_rep3", rep1=rep1, rep2=rep3, output_dir=output_dir)
+        get_reproducible_peaks(out_name=sample + "_rep2" + "_rep3", rep1=rep2, rep2=rep3, output_dir=output_dir)
+        get_reproducible_peaks(out_name=sample, rep1=sample + "_rep1" + "_rep2" + "_reproducible_peaks.txt", rep2=sample + "_rep1" + "_rep3" + "_reproducible_peaks.txt", output_dir=output_dir)
+    if len(samples[sample]) ==2:
+        reps_keys = list(replicate.keys())
+        file1 = reps_keys[0] + "_peaks.narrowPeak"
+        rep1 = os.path.join(output_dir, file1)
+        file2 = reps_keys[1] + "_peaks.narrowPeak"
+        rep2 = os.path.join(output_dir, file2)
+        get_reproducible_peaks(out_name=sample + "_reproducible", rep1=rep1, rep2=rep2, output_dir=output_dir)
     #print(samples[sample][0])
     #print(samples[sample][1])
     #treatment_bam = samples[sample][1]
