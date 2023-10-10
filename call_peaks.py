@@ -50,6 +50,17 @@ for sample,replicate in samples.items():
         #print(treatment_bam)
         #print(control_bam)
         call_peaks_macs2(treatment_bam, control_bam, output_dir, rep)
+
+    # break if there are more than 3 replicates or less than 2 replicates and give error message
+    if len(samples[sample]) > 3:
+        print("Error: more than 3 replicates")
+        break
+
+    if len(samples[sample]) < 2:
+        print("Error: less than 2 replicates")
+        break   
+
+    # get reproducible peaks for 3 replicates
     if len(samples[sample]) == 3:
         #print(len(samples[sample]))
         """
@@ -71,6 +82,7 @@ for sample,replicate in samples.items():
         get_reproducible_peaks(out_name=sample + "_rep1" + "_rep3", rep1=rep1, rep2=rep3, output_dir=output_dir)
         get_reproducible_peaks(out_name=sample + "_rep2" + "_rep3", rep1=rep2, rep2=rep3, output_dir=output_dir)
         get_reproducible_peaks(out_name=sample, rep1=sample + "_rep1" + "_rep2" + "_reproducible_peaks.txt", rep2=sample + "_rep1" + "_rep3" + "_reproducible_peaks.txt", output_dir=output_dir)
+    # get reproducible peaks for 2 replicates
     if len(samples[sample]) ==2:
         reps_keys = list(replicate.keys())
         file1 = reps_keys[0] + "_peaks.narrowPeak"
