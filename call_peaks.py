@@ -21,7 +21,7 @@ def call_peaks_macs2(treatment_bam, control_bam, output_dir, treatment_name):
     """
     Call peaks using MACS2.
     """
-    cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -q 0.05 -n {treatment_name} --outdir {output_dir}"
+    cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -p 1e-5 -n {treatment_name} --outdir {output_dir}"
     os.system(cmd)
 
 # function to get reproducible peaks using IDR
