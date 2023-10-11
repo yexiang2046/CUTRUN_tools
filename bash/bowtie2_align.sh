@@ -66,6 +66,7 @@ printf '%s\n' "$samples_id" | while IFS= read -r f; do
     bowtie2 --local --very-sensitive-local --no-unal --no-mixed --no-discordant --phred33 -k 1 -I 10 -X 700 -x ${BOWTIE2_IDX} -p ${THREADS} -1 "${FILE_PATH}/$f${READ1_PAT}" -2 "${FILE_PATH}/$f${READ2_PAT}"  -S ${OUT_PATH}/${f}.sam
     samtools view -@ 30 -S -b ${OUT_PATH}/${f}.sam > ${OUT_PATH}/${f}.bam
     samtools sort -@ 30 -o ${OUT_PATH}/${f}_sorted.bam ${OUT_PATH}/${f}.bam
+    samtools view -b -h -@ 24 -L Blacklist/hg38-blacklist.v2.bed -o /dev/null -U $(basename -s .bam $f).bl.bam ${OUT_PATH}/${f}
 done
 
 
