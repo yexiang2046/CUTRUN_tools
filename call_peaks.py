@@ -25,11 +25,14 @@ def call_peaks_macs2(treatment_bam, control_bam, output_dir, treatment_name):
     os.system(cmd)
 
 # function to get reproducible peaks using IDR
+# also filter to keep only peaks with q-value < 0.05
 def get_reproducible_peaks(out_name, rep1, rep2, output_dir, idr_threshold = 0.05):
     """
     Get reproducible peaks using IDR.
     """
     cmd = f"idr --samples {rep1} {rep2} --input-file-type narrowPeak --output-file {out_name}_reproducible_peaks.txt --rank signal.value --plot --log-output-file {out_name}_idr.log --idr-threshold {idr_threshold}"
+    os.system(cmd)
+    cmd = f"awk 'BEGIN{{OFS=\"\t\"}}{{if ($9 < {idr_threshold}) print $1, $2, $3, $4, $5, $6, $7, $8, $9, $10}}' {out_name}_reproducible_peaks.txt > {out_name}_reproducible_peaks_qval_{idr_threshold}.txt"
     os.system(cmd)
 
 
