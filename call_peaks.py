@@ -5,23 +5,28 @@ import utils
 
 # define helper functions
 # function to parse command line arguments inlcuding json file
+# add support for broad peaks
 def parse_args():
     """ Parse command line arguments.
     """
     parser = argparse.ArgumentParser(description="Call peaks using MACS2.")
     parser.add_argument("--json", type=str, required=True, help="Path to JSON file containing sample information.")
     parser.add_argument("--output_dir", type=str, required=True, help="Path to output directory.")
+    parser.add_argument("--broad", action="store_true", help="Call broad peaks.")
     return parser.parse_args()
 
 
 
 
 # function to call peaks using macs2
-def call_peaks_macs2(treatment_bam, control_bam, output_dir, treatment_name):
+def call_peaks_macs2(treatment_bam, control_bam, output_dir, treatment_name, broad=False):
     """
     Call peaks using MACS2.
     """
-    cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -q 0.05 -n {treatment_name} --outdir {output_dir}"
+    if broad:
+        cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -p 1e-5 -n {treatment_name} --outdir {output_dir} --broad"
+    else:
+        cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -p 1e-5 -n {treatment_name} --outdir {output_dir}"
     os.system(cmd)
 
 # function to get reproducible peaks using IDR
