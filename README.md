@@ -26,11 +26,20 @@ CUT&RUN data anlysis pipeline, doing CUT&RUN fastq files QC,alignment, and peak 
   3.  DiffBind
  
  ##Usage
-  1.  trim reads
+  ###  trim reads
 	```console
 	./bash/fastp_trim.sh read1_pattern read2_pattern folder_of_fastq_files 
 	```	
-  2.  align with bowtie2
+  ###  align with bowtie2
 	```console
 	./bash/bowtie2_align.sh FILE_PATH READ1_PAT READ2_PAT GENOME OUT_PATH
 	```
+  ###  call peaks with MACS2, for TFs, remove --broad
+  ```
+  python3 call_peaks.py --json epi.json --output_dir macs2_out --broad
+  ```
+  ###  define enhancers by H3K27ac and H3K4me1
+  ```
+  ./bash/define_enhancer_by_H3K27ac_H3K4me1.sh H3K27ac_rep1_rep2_reproducible_peaks_qval_0.05.txt H3K4me1_rep1_rep2_reproducible_peaks_qval_0.05.txt BC3_enhancers.bed hg38_KSHV.sizes
+  ```
+  
