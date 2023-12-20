@@ -24,9 +24,11 @@ def call_peaks_macs2(treatment_bam, control_bam, output_dir, treatment_name, bro
     Call peaks using MACS2.
     """
     if broad:
-        cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -p 1e-5 -n {treatment_name} --outdir {output_dir} --broad"
+        cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -q 0.99 -n {treatment_name} --outdir {output_dir} --broad && \
+                sort -k8,8nr {treatment_bam}_peaks.narrowPeak > {treatment_bam}_srt_peaks.narrowPeak"
     else:
-        cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -p 1e-5 -n {treatment_name} --outdir {output_dir}"
+        cmd = f"macs2 callpeak -t {treatment_bam} -c {control_bam} -f BAMPE -g hs -q 0.99 -n {treatment_name} --outdir {output_dir} && \
+                sort -k8,8nr {treatment_bam}_peaks.narrowPeak > {treatment_bam}_srt_peaks.narrowPeak"
     os.system(cmd)
 
 # function to get reproducible peaks using IDR
@@ -35,7 +37,7 @@ def get_reproducible_peaks(out_name, rep1, rep2, output_dir, idr_threshold = 0.0
     """
     Get reproducible peaks using IDR.
     """
-    cmd = f"idr --samples {rep1} {rep2} --input-file-type narrowPeak --output-file {out_name}_reproducible_peaks.txt --rank signal.value --plot --log-output-file {out_name}_idr.log --idr-threshold {idr_threshold}"
+    cmd = f"docker run -it -w $(pwd) -v $(pwd):$(pwd) xiang2019/idr idr --samples {rep1} {rep2} --input-file-type narrowPeak --output-file {out_name}_reproducible_peaks.txt --rank signal.value --plot --log-output-file {out_name}_idr.log --idr-threshold {idr_threshold}"
     os.system(cmd)
     cmd = f"awk 'BEGIN{{OFS=\"\t\"}}{{if ($9 < {idr_threshold}) print $1, $2, $3, $4, $5, $6, $7, $8, $9, $10}}' {out_name}_reproducible_peaks.txt > {out_name}_reproducible_peaks_qval_{idr_threshold}.txt"
     os.system(cmd)
@@ -79,11 +81,11 @@ for sample,replicate in samples.items():
         # get reproducible peaks
         # get replicates from samples
         reps_keys = list(replicate.keys())
-        file1 = reps_keys[0] + "_peaks.narrowPeak"
+        file1 = reps_keys[0] + "_srt_peaks.narrowPeak"
         rep1 = os.path.join(output_dir, file1)
-        file2 = reps_keys[1] + "_peaks.narrowPeak"
+        file2 = reps_keys[1] + "_srt_peaks.narrowPeak"
         rep2 = os.path.join(output_dir, file2)
-        file3 = reps_keys[2] + "_peaks.narrowPeak"
+        file3 = reps_keys[2] + "_srt_peaks.narrowPeak"
         rep3 = os.path.join(output_dir, file3)
         #print(rep1, rep2, rep3)
         get_reproducible_peaks(out_name=sample + "_rep1" + "_rep2", rep1=rep1, rep2=rep2, output_dir=output_dir)
@@ -93,9 +95,9 @@ for sample,replicate in samples.items():
     # get reproducible peaks for 2 replicates
     if len(samples[sample]) ==2:
         reps_keys = list(replicate.keys())
-        file1 = reps_keys[0] + "_peaks.narrowPeak"
+        file1 = reps_keys[0] + "_srt_peaks.narrowPeak"
         rep1 = os.path.join(output_dir, file1)
-        file2 = reps_keys[1] + "_peaks.narrowPeak"
+        file2 = reps_keys[1] + "_srt_peaks.narrowPeak"
         rep2 = os.path.join(output_dir, file2)
         get_reproducible_peaks(out_name=sample + "_reproducible", rep1=rep1, rep2=rep2, output_dir=output_dir)
     #print(samples[sample][0])
