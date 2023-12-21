@@ -55,6 +55,8 @@ parser = parse_args()
 # read json file and parse samples
 samples = utils.parse_samples_for_callpeaks(parser.json)
 output_dir = parser.output_dir
+genome = parser.genome
+
 
 for sample,replicate in samples.items():
     #print(sample)
@@ -106,11 +108,11 @@ for sample,replicate in samples.items():
         rep1 = os.path.join(output_dir, file1)
         file2 = reps_keys[1] + "_srt_peaks.narrowPeak"
         rep2 = os.path.join(output_dir, file2)
-        get_reproducible_peaks(out_name=sample + "_reproducible", rep1=rep1, rep2=rep2, output_dir=output_dir)
+        get_reproducible_peaks(out_name=sample, rep1=rep1, rep2=rep2, output_dir=output_dir)
     #print(samples[sample][0])
     #print(samples[sample][1])
     #treatment_bam = samples[sample][1]
     #control_bam = samples[sample][0]
     #call_peaks_macs2(treatment_bam, control_bam, output_dir, sample)
-        annotate_peaks_homer(sample + "_reproducible_peaks_qval_0.05.txt", genome = "mm10")
+        annotate_peaks_homer(sample + "_reproducible_peaks_qval_0.05.txt", genome = genome)
 
