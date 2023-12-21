@@ -42,6 +42,13 @@ def get_reproducible_peaks(out_name, rep1, rep2, output_dir, idr_threshold = 0.0
     cmd = f"awk 'BEGIN{{OFS=\"\t\"}}{{if ($9 < {idr_threshold}) print $1, $2, $3, $4, $5, $6, $7, $8, $9, $10}}' {out_name}_reproducible_peaks.txt > {out_name}_reproducible_peaks_qval_{idr_threshold}.txt"
     os.system(cmd)
 
+# functions to annotate peaks by genomic region using HOMER
+def annotate_peaks_homer(peak_file, genome = "hg38"):
+    """
+    Annotate peaks by genomic region using HOMER.
+    """
+    cmd = f"annotatePeaks.pl {peak_file} {genome} -annStats {peak_file}_annotation_stats.txt > {peak_file}_annotation.txt"
+    os.system(cmd)
 
 # parse command line arguments
 parser = parse_args()
@@ -105,3 +112,5 @@ for sample,replicate in samples.items():
     #treatment_bam = samples[sample][1]
     #control_bam = samples[sample][0]
     #call_peaks_macs2(treatment_bam, control_bam, output_dir, sample)
+        annotate_peaks_homer(sample + "_reproducible_peaks_qval_0.05.txt", genome = "mm10")
+
